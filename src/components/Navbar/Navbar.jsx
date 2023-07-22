@@ -3,9 +3,6 @@ import { ReactComponent as Logo } from '../../assets/images/logo.svg';
 import { ReactComponent as CartSVG } from '../../assets/images/icon-cart.svg'
 import avatarImgSrc from '../../assets/images/image-avatar.png'
 
-
-
-
 const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
@@ -44,8 +41,6 @@ const Avatar = styled.img`
 const CartIcon = styled(CartSVG)`
     margin-right: 4.6rem;
 `
-
-
 
 
 export default function Navbar() {
