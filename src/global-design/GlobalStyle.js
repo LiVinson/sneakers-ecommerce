@@ -20,6 +20,8 @@ const GlobalStyle = createGlobalStyle`
         --light-gray-blue: #F2F2F2 //hsl(223, 64%, 98%)
         --white: hsl(0, 0%, 100%);
         --black: hsl(0, 0%, 0%);
+        --font-regular: 400;
+        --font-bold: 700;
 
 
     }
@@ -28,14 +30,14 @@ const GlobalStyle = createGlobalStyle`
         box-sizing:border-box;
         font-family: 'Inter', sans-serif;
         font-size: 1.6rem;
-        font-weight: 400;   
+        font-weight: var(--font-regular);   
         background-color:var(--light-gray-blue);  
     }
 
     p, li {
         line-height: 2.6rem;  
     }
-    
+
     picture {
         display:inline-block;
         line-height:0;
