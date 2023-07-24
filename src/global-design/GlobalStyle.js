@@ -28,9 +28,17 @@ const GlobalStyle = createGlobalStyle`
         box-sizing:border-box;
         font-family: 'Inter', sans-serif;
         font-size: 1.6rem;
-        font-weight: 400;
-        line-height:2.6rem;     
+        font-weight: 400;   
         background-color:var(--light-gray-blue);  
+    }
+
+    p, li {
+        line-height: 2.6rem;  
+    }
+    
+    picture {
+        display:inline-block;
+        line-height:0;
     }
 `
 
