@@ -13,6 +13,7 @@ const ItemDetailContainer = styled.div`
 const DetailImagesWrapper = styled.div`
   max-width: 44.5rem;
 `;
+
 const ThumbnailsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
@@ -20,27 +21,30 @@ const ThumbnailsWrapper = styled.div`
 `;
 
 const DetailContentWrapper = styled.div`
-
-    border:solid 1px red;
     width: 44.5rem;
 `
 
 const Brand = styled.p`
-    text-transform: uppercase;
     color: var(--orange);
     font-size:1.3rem;
     font-weight: var(--font-bold);
     line-height:1;
+    margin-bottom: 2.4rem;
+    text-transform: uppercase;
 `
 
 const ItemName = styled.h1`
+    color: var(--dark-blue);
     font-size: 4.4rem;
     font-weight: var(--font-bold);
-    line-height:4.8rem;
+    line-height: 4.8rem;
+    margin-bottom: 3.2rem; 
 `
 const ItemDescription = styled.p`
+    color: var(--dark-gray-blue);
     font-size: 1.6rem;
     line-height: 2.6rem;
+    margin-bottom: 2.4rem;
 `
  
 
