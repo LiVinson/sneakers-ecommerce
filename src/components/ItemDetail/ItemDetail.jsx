@@ -3,6 +3,7 @@ import FeaturedImage from "../FeaturedImage/FeaturedImage";
 import ImageThumbnail from "../ImageThumbnail/ImageThumbnail";
 import ItemPrice from "../ItemPrice/ItemPrice"
 import products from "../../data/products/products";
+import AddToCartButton from "../AddToCartButton/AddToCartButton";
 
 const ItemDetailContainer = styled.div`
     display:flex;
@@ -68,6 +69,7 @@ export default function ItemDetail({ id = 0, category = "shoes" }) {
         <ItemName>{item.name}</ItemName>
         <ItemDescription>{item.description}</ItemDescription>
         <ItemPrice price={item.price} saleAmount={item.saleAmount}/> 
+        <AddToCartButton />
       </DetailContentWrapper>
 
     </ItemDetailContainer>
