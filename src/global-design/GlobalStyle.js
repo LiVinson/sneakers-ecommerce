@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Inter', sans-serif;
         font-size: 1.6rem;
         font-weight: var(--font-regular);   
-        background-color:var(--light-gray-blue);  
+        background-color:var(--white);  
     }
 
     p, li {

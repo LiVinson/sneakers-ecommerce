@@ -4,6 +4,7 @@ import ImageThumbnail from "../ImageThumbnail/ImageThumbnail";
 import ItemPrice from "../ItemPrice/ItemPrice"
 import products from "../../data/products/products";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
+import ItemQuantityToggle from "../ItemQuantityToggle/ItemQuantityToggle"
 
 const ItemDetailContainer = styled.div`
     display:flex;
@@ -23,6 +24,7 @@ const ThumbnailsWrapper = styled.div`
 
 const DetailContentWrapper = styled.div`
     width: 44.5rem;
+    padding-top:6.2rem;
 `
 
 const Brand = styled.p`
@@ -47,7 +49,14 @@ const ItemDescription = styled.p`
     line-height: 2.6rem;
     margin-bottom: 2.4rem;
 `
+ const ItemQuantity = styled(ItemQuantityToggle)`
+    margin-right: 1.6rem;
+   
+ `
+
+ const QuantityCartWrapper = styled.div`
  
+ margin-top:3.2rem`
 
 
 export default function ItemDetail({ id = 0, category = "shoes" }) {
@@ -69,7 +78,12 @@ export default function ItemDetail({ id = 0, category = "shoes" }) {
         <ItemName>{item.name}</ItemName>
         <ItemDescription>{item.description}</ItemDescription>
         <ItemPrice price={item.price} saleAmount={item.saleAmount}/> 
-        <AddToCartButton />
+          
+        <QuantityCartWrapper>
+          <ItemQuantity />
+          <AddToCartButton />
+        </QuantityCartWrapper>
+       
       </DetailContentWrapper>
 
     </ItemDetailContainer>
