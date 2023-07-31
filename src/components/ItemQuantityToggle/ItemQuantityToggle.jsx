@@ -3,13 +3,9 @@ import {ReactComponent as MinusSVG } from "../../assets/images/icon-minus.svg";
 import {ReactComponent as PlusSVG } from "../../assets/images/icon-plus.svg";
 
 const Wrapper = styled.div`
-    // width: fit-content;
-    // height: 5.6rem;
     display:inline-block;
-    padding: 2.1rem 1.6rem 1.7rem 1.6rem;
     background-color: var(--light-gray-blue);
     border-radius: 1rem;
-    
 `
 
 const Quantity = styled.span`
@@ -17,30 +13,40 @@ const Quantity = styled.span`
     line-height:2rem;
     font-size:1.6rem;
     font-weight: var(--font-bold);
-    margin-left: 4.55rem;
-    margin-right: 4.55rem;
+    // margin-left: 4.55rem;
+    // margin-right: 4.55rem;
+    padding-left: 2.7rem;
+    padding-right:2.7rem;
     vertical-align:middle;
 
 
 `
 
-const MinusIcon = styled(MinusSVG)`
-    vertical-align:middle;
-`
+const QuantityButton = styled.button`
+    background-color: var(--light-gray-blue);
+    border: none;
+    cursor: pointer;
+    height: 5.6rem;
+    padding-left: 1.7rem;
+    padding-right:1.7rem;
 
-const PlusIcon = styled(PlusSVG)`
-vertical-align:middle;
-
+    & > * {
+        vertical-align:middle;
+    }
 `
 
 
 
 export default function ItemQuantityToggle({className}) {
+
+    const handleClick = () => {
+        console.log("click");
+    }
     return (
         <Wrapper className={className ? className: '' }>
-            <MinusIcon />
+            <QuantityButton onClick={handleClick}><MinusSVG /></QuantityButton>
             <Quantity>0</Quantity>
-            <PlusIcon />
+            <QuantityButton onClick={handleClick}><PlusSVG /></QuantityButton>
         </Wrapper>
     )
 }
