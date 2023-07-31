@@ -1,3 +1,4 @@
+
 import Navbar from './components/Navbar/Navbar';
 import Container from './components/Container/Container';
 import GlobalStyle from './global-design/GlobalStyle';

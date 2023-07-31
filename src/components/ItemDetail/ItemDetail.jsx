@@ -5,6 +5,8 @@ import ItemPrice from "../ItemPrice/ItemPrice"
 import products from "../../data/products/products";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 import ItemQuantityToggle from "../ItemQuantityToggle/ItemQuantityToggle"
+import ItemDetailImages from "../ItemDetailImages/ItemDetailImages";
+
 
 const ItemDetailContainer = styled.div`
     display:flex;
@@ -12,15 +14,6 @@ const ItemDetailContainer = styled.div`
     width: 101.5rem;
 `;
 
-const DetailImagesWrapper = styled.div`
-  max-width: 44.5rem;
-`;
-
-const ThumbnailsWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  margin-top: 3.2rem;
-`;
 
 const DetailContentWrapper = styled.div`
     width: 44.5rem;
@@ -63,16 +56,10 @@ export default function ItemDetail({ id = 0, category = "shoes" }) {
   const item = products[category].find((product) => product.id == id);
   // console.log(item);
   // console.log(item.thumbnailImages)
+  const featuredIndex = 0;
   return (
     <ItemDetailContainer>
-      <DetailImagesWrapper>
-        <FeaturedImage image={item.featuredImages[0]} />
-        <ThumbnailsWrapper>
-          {item.thumbnailImages.map((image, index) => (
-            <ImageThumbnail key={index} image={image} />
-          ))}
-        </ThumbnailsWrapper>
-      </DetailImagesWrapper>
+      <ItemDetailImages featuredImage={item.featuredImages[0]} thumbnailImages={item.thumbnailImages}/>
       <DetailContentWrapper>
         <Brand>{item.brand}</Brand>
         <ItemName>{item.name}</ItemName>
