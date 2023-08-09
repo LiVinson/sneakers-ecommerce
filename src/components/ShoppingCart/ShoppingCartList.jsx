@@ -5,7 +5,6 @@ const Image = styled.img`
 `
 
 function CartItem ({name, price, thumbNail, quantity}) {
-    console.log(name);
     return (
         <div>
             <picture>
