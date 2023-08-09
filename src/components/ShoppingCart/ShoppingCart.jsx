@@ -33,7 +33,6 @@ const EmptyCartText = styled.p`
 
 export default function ShoppingCart({displayCart, shoppingCart, removeFromCart }) {
 
-
     
     return (
         <>

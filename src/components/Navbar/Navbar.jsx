@@ -18,6 +18,7 @@ const WrapperLeft = styled.div`
 const WrapperRight=styled.div`
     display:flex;
     align-items:center;
+    position:relative;
 `
 
 const MenuList = styled.ul`
@@ -42,8 +43,21 @@ const CartIcon = styled(CartSVG)`
     margin-right: 4.6rem;
 `
 
+const CartQuantity = styled.span`
+    position:absolute;
+    top: 1rem;
+    left: 1rem;
+    color: var(--white);
+    background-color: var(--orange);
+    font-size: 1rem;
+    font-weight: var(--font-bold);
+    height: 1.3rem;
+    width: 1.9rem;
+    text-align:center;
+    border-radius:.65rem;
+    `
 
-export default function Navbar({displayCart, updateDisplayCart}) {
+export default function Navbar({displayCart, updateDisplayCart, totalQuantity}) {
 
     const handleClick = () => {
         updateDisplayCart(!displayCart);
@@ -61,7 +75,8 @@ export default function Navbar({displayCart, updateDisplayCart}) {
             </MenuList>
             </WrapperLeft>
             <WrapperRight>
-                <CartIcon onClick={handleClick}/>
+                <CartIcon  onClick={handleClick}/>
+                {totalQuantity> 0 && <CartQuantity>{totalQuantity}</CartQuantity>}
                 <Avatar src={avatarImgSrc}/>
             </WrapperRight>
         </Nav>

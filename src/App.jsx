@@ -12,6 +12,9 @@ function App() {
 
   const [ displayCart, updateDisplayCart ] = useState(false);
 
+  const totalQuantity = shoppingCart.reduce((total, cartItem) => total + cartItem.itemQuantity, 0);
+  console.log(totalQuantity)
+
   const addToCart = (item, quantity) => {
 
     // console.log(item);
@@ -73,7 +76,7 @@ function App() {
     <>
     <GlobalStyle />
     <Container>
-      <Navbar displayCart={displayCart} updateDisplayCart={updateDisplayCart}/>
+      <Navbar displayCart={displayCart} updateDisplayCart={updateDisplayCart} totalQuantity={totalQuantity}/>
       <ShoppingCart
          displayCart={displayCart}  
          shoppingCart={shoppingCart} 
