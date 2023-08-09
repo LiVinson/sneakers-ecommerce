@@ -13,7 +13,7 @@ function App() {
   const addToCart = (item, quantity) => {
 
     console.log(item);
-    console.log(quantity);
+    // console.log(quantity);
     //check if cart contains item
     //If so, 
       //filter for item and update quantity
@@ -24,10 +24,10 @@ function App() {
       itemId: item.id,
       itemName: item.name,
       itemThumbnail: item.thumbnailImages[0],
-      itemPrice: item.price,
+      itemPrice: item.price * item.saleAmount,
       itemQuantity: quantity
-
     }
+    // console.log(shoppingCartItem);
     const updatedCart = [...shoppingCart, shoppingCartItem]
 
       updateShoppingCart(updatedCart)

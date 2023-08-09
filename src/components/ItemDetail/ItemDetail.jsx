@@ -65,7 +65,7 @@ export default function ItemDetail({ addToCart, id = 0 }) {
 
   useEffect(()=> {
     const item = fetchItemById(id);
-    console.log(item)
+    // console.log(item)
     setItem(item);
     setLoading(false);
   }, [id])

@@ -1,4 +1,5 @@
 import {styled} from "styled-components";
+import ShoppingCartList from "./ShoppingCartList";
 
 const Cart = styled.div`
     width: 36rem;
@@ -35,7 +36,7 @@ export default function ShoppingCart({shoppingCart}) {
     return (
         <Cart>
             <CartHeader>Cart</CartHeader> 
-            {shoppingCart.length ? "There's stuff in here!" : <EmptyCartText>Your cart is empty.</EmptyCartText>}
+            {shoppingCart.length ? <ShoppingCartList shoppingList={shoppingCart}/> : <EmptyCartText>Your cart is empty.</EmptyCartText>}
             
         </Cart>
     )
