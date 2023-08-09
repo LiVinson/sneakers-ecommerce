@@ -30,12 +30,13 @@ const EmptyCartText = styled.p`
     margin-top: 7.7rem;
 `
 
-export default function ShoppingCart() {
+export default function ShoppingCart({shoppingCart}) {
     
     return (
         <Cart>
             <CartHeader>Cart</CartHeader> 
-            <EmptyCartText>Your cart is empty.</EmptyCartText>
+            {shoppingCart.length ? "There's stuff in here!" : <EmptyCartText>Your cart is empty.</EmptyCartText>}
+            
         </Cart>
     )
 }

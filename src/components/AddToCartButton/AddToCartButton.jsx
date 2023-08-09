@@ -19,10 +19,11 @@ const CartIcon = styled(WhiteCartSVG)`
 `
 
 
-export default function AddToCartButton() {
+export default function AddToCartButton({handleAddToCart}) {
+
 
     return (
-        <Button>
+        <Button onClick={handleAddToCart}>
             <CartIcon/> 
             Add to cart
         </Button>

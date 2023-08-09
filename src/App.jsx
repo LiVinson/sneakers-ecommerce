@@ -1,4 +1,4 @@
-
+import { useState } from "react";
 import Navbar from './components/Navbar/Navbar';
 import Container from './components/Container/Container';
 import GlobalStyle from './global-design/GlobalStyle';
@@ -8,14 +8,42 @@ import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 
 function App() {
 
+  const [ shoppingCart, updateShoppingCart ] = useState([]);
+
+  const addToCart = (item, quantity) => {
+
+    console.log(item);
+    console.log(quantity);
+    //check if cart contains item
+    //If so, 
+      //filter for item and update quantity
+      //Swap in updated item
+    //else add item to end of shopping cart
+
+    const shoppingCartItem = {
+      itemId: item.id,
+      itemName: item.name,
+      itemThumbnail: item.thumbnailImages[0],
+      itemPrice: item.price,
+      itemQuantity: quantity
+
+    }
+    const updatedCart = [...shoppingCart, shoppingCartItem]
+
+      updateShoppingCart(updatedCart)
+  }
+
+  const removeFromCart = () => {
+
+  }
   return (
     <>
     <GlobalStyle />
     <Container>
       <Navbar />
-      <ShoppingCart />
+      <ShoppingCart shoppingCart={shoppingCart} removeFromCart={removeFromCart} />
       <MainWrapper>
-        <ItemDetail />
+        <ItemDetail addToCart={addToCart} />
       </MainWrapper>
     </Container>
     </>

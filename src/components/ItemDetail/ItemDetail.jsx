@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import ItemPrice from "../ItemPrice/ItemPrice"
 import products from "../../data/products/products";
@@ -48,18 +48,35 @@ const ItemDescription = styled.p`
  `
 
  const QuantityCartWrapper = styled.div`
- 
- margin-top:3.2rem`
 
-const item = products.shoes.find((product) => product.id == id);
+   margin-top:3.2rem
+ `
 
-export default function ItemDetail({ id = 0 }) {
+const fetchItemById = (id) => {
+  const item = products.shoes.find((product) => product.id == id);
+  return item
+}
 
+export default function ItemDetail({ addToCart, id = 0 }) {
+
+  const [ item, setItem ] = useState(null);
+  const [ loading, setLoading ] = useState(true);
   const [ quantity, setQuantity ] = useState(1)
 
-  const featuredIndex = 0;
+  useEffect(()=> {
+    const item = fetchItemById(id);
+    console.log(item)
+    setItem(item);
+    setLoading(false);
+  }, [id])
+
+  const handleAddToCart = () => {
+    addToCart(item, quantity)
+  }
   return (
     <ItemDetailContainer>
+      {loading ? "Loading!" : <>
+      
       <ItemDetailImages featuredImage={item.featuredImages[0]} thumbnailImages={item.thumbnailImages}/>
       <DetailContentWrapper>
         <Brand>{item.brand}</Brand>
@@ -69,10 +86,13 @@ export default function ItemDetail({ id = 0 }) {
           
         <QuantityCartWrapper>
           <ItemQuantity quantity={quantity} setQuantity={setQuantity} />
-          <AddToCartButton />
+          <AddToCartButton handleAddToCart={handleAddToCart}/>
         </QuantityCartWrapper>
        
-      </DetailContentWrapper>
+        </DetailContentWrapper>
+      </>}
+
+
 
     </ItemDetailContainer>
   );
