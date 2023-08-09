@@ -1,3 +1,4 @@
+
 import {styled} from "styled-components";
 import {ReactComponent as MinusSVG } from "../../assets/images/icon-minus.svg";
 import {ReactComponent as PlusSVG } from "../../assets/images/icon-plus.svg";
@@ -9,14 +10,13 @@ const Wrapper = styled.div`
 `
 
 const Quantity = styled.span`
+    display:inline-block;
     color: var(--dark-blue);
     line-height:2rem;
     font-size:1.6rem;
     font-weight: var(--font-bold);
-    // margin-left: 4.55rem;
-    // margin-right: 4.55rem;
-    padding-left: 2.7rem;
-    padding-right:2.7rem;
+    text-align: center;
+    width:6.5rem;
     vertical-align:middle;
 
 
@@ -37,16 +37,28 @@ const QuantityButton = styled.button`
 
 
 
-export default function ItemQuantityToggle({className}) {
+export default function ItemQuantityToggle({ className, quantity, setQuantity }) {
 
-    const handleClick = () => {
-        console.log("click");
+
+
+    const decrementQuantity = () => {
+        if (quantity > 1) {
+            setQuantity(quantity - 1);
+        }
     }
+    const incrementQuantity = () => {
+
+        if(quantity < 9) {
+            setQuantity(quantity + 1);
+        }
+    }
+
+
     return (
         <Wrapper className={className ? className: '' }>
-            <QuantityButton onClick={handleClick}><MinusSVG /></QuantityButton>
-            <Quantity>0</Quantity>
-            <QuantityButton onClick={handleClick}><PlusSVG /></QuantityButton>
+            <QuantityButton onClick={decrementQuantity}><MinusSVG /></QuantityButton>
+            <Quantity>{quantity}</Quantity>
+            <QuantityButton onClick={incrementQuantity}><PlusSVG /></QuantityButton>
         </Wrapper>
     )
 }

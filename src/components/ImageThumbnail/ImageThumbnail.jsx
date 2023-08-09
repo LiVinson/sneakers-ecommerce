@@ -47,6 +47,7 @@ export default function ImageThumbnail({image, active}) {
 
     const handleClick = () => {
         console.log("thumb clicked");
+        //Update featured image to corresponding large image using index
     }
     return(
         <ImageWrapper onClick={handleClick}>

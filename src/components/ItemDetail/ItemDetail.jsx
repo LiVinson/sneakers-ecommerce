@@ -1,11 +1,11 @@
+import { useState } from "react";
 import styled from "styled-components";
-import FeaturedImage from "../FeaturedImage/FeaturedImage";
-import ImageThumbnail from "../ImageThumbnail/ImageThumbnail";
 import ItemPrice from "../ItemPrice/ItemPrice"
 import products from "../../data/products/products";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 import ItemQuantityToggle from "../ItemQuantityToggle/ItemQuantityToggle"
 import ItemDetailImages from "../ItemDetailImages/ItemDetailImages";
+
 
 
 const ItemDetailContainer = styled.div`
@@ -51,11 +51,12 @@ const ItemDescription = styled.p`
  
  margin-top:3.2rem`
 
+const item = products.shoes.find((product) => product.id == id);
 
-export default function ItemDetail({ id = 0, category = "shoes" }) {
-  const item = products[category].find((product) => product.id == id);
-  // console.log(item);
-  // console.log(item.thumbnailImages)
+export default function ItemDetail({ id = 0 }) {
+
+  const [ quantity, setQuantity ] = useState(1)
+
   const featuredIndex = 0;
   return (
     <ItemDetailContainer>
@@ -67,7 +68,7 @@ export default function ItemDetail({ id = 0, category = "shoes" }) {
         <ItemPrice price={item.price} saleAmount={item.saleAmount}/> 
           
         <QuantityCartWrapper>
-          <ItemQuantity />
+          <ItemQuantity quantity={quantity} setQuantity={setQuantity} />
           <AddToCartButton />
         </QuantityCartWrapper>
        
