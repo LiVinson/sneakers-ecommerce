@@ -10,6 +10,8 @@ function App() {
 
   const [ shoppingCart, updateShoppingCart ] = useState([]);
 
+  const [ displayCart, updateDisplayCart ] = useState(false);
+
   const addToCart = (item, quantity) => {
 
     // console.log(item);
@@ -71,8 +73,11 @@ function App() {
     <>
     <GlobalStyle />
     <Container>
-      <Navbar />
-      <ShoppingCart shoppingCart={shoppingCart} removeFromCart={removeFromCart} />
+      <Navbar displayCart={displayCart} updateDisplayCart={updateDisplayCart}/>
+      <ShoppingCart
+         displayCart={displayCart}  
+         shoppingCart={shoppingCart} 
+         removeFromCart={removeFromCart} />
       <MainWrapper>
         <ItemDetail addToCart={addToCart} />
       </MainWrapper>

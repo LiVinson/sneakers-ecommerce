@@ -43,8 +43,11 @@ const CartIcon = styled(CartSVG)`
 `
 
 
-export default function Navbar() {
+export default function Navbar({displayCart, updateDisplayCart}) {
 
+    const handleClick = () => {
+        updateDisplayCart(!displayCart);
+    }
     return (
         <Nav>
             <WrapperLeft>
@@ -58,7 +61,7 @@ export default function Navbar() {
             </MenuList>
             </WrapperLeft>
             <WrapperRight>
-                <CartIcon/>
+                <CartIcon onClick={handleClick}/>
                 <Avatar src={avatarImgSrc}/>
             </WrapperRight>
         </Nav>
