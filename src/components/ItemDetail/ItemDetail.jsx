@@ -5,7 +5,7 @@ import products from "../../data/products/products";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 import ItemQuantityToggle from "../ItemQuantityToggle/ItemQuantityToggle"
 import ItemDetailImages from "../ItemDetailImages/ItemDetailImages";
-
+import ProductImageModal from "../ProductImageModal/ProductImageModal"
 
 
 const ItemDetailContainer = styled.div`
@@ -62,22 +62,43 @@ export default function ItemDetail({ addToCart, id = 0 }) {
   const [ item, setItem ] = useState(null);
   const [ loading, setLoading ] = useState(true);
   const [ quantity, setQuantity ] = useState(1)
+  const [ displayModal, setDisplayModal ] = useState(false);
+  const [ featuredImage, setFeaturedImage ] = useState(null);
+  const [ featuredImageIndex, setFeaturedImageIndex ] = useState(0);
+
 
   useEffect(()=> {
     const item = fetchItemById(id);
     // console.log(item)
     setItem(item);
+    setFeaturedImage(item.featuredImages[0]);
     setLoading(false);
   }, [id])
 
   const handleAddToCart = () => {
     addToCart(item, quantity)
   }
+
+  const handleDisplayModal = (imageIndex) => {
+    console.log("open modal to this image");
+    console.log(imageIndex);
+
+    if(displayModal) {
+      // setFeaturedImage(image);
+      setFeaturedImageIndex(imageIndex)
+    } else {
+      setFeaturedImageIndex(imageIndex)
+      setDisplayModal(true);
+
+
+    }
+  
+  }
   return (
     <ItemDetailContainer>
       {loading ? "Loading!" : <>
       
-      <ItemDetailImages featuredImage={item.featuredImages[0]} thumbnailImages={item.thumbnailImages}/>
+      <ItemDetailImages handleDisplayModal={handleDisplayModal} images={item.images} featuredImageIndex={featuredImageIndex} />
       <DetailContentWrapper>
         <Brand>{item.brand}</Brand>
         <ItemName>{item.name}</ItemName>
@@ -89,7 +110,16 @@ export default function ItemDetail({ addToCart, id = 0 }) {
           <AddToCartButton handleAddToCart={handleAddToCart}/>
         </QuantityCartWrapper>
        
-        </DetailContentWrapper>
+      </DetailContentWrapper>
+      <ProductImageModal 
+        featuredImageIndex={featuredImageIndex}
+        images={item.images}
+        // featuredImage={featuredImage} 
+        // thumbnailImages={item.thumbnailImages}
+        displayModal={displayModal}
+        handleDisplayModal={handleDisplayModal}
+        setDisplayModal={setDisplayModal}
+        />
       </>}
 
 

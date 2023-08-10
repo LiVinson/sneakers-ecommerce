@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { styled } from "styled-components";
 import Navbar from './components/Navbar/Navbar';
 import Container from './components/Container/Container';
 import GlobalStyle from './global-design/GlobalStyle';
 import MainWrapper from './components/MainWrapper/MainWrapper'
 import ItemDetail from './components/ItemDetail/ItemDetail'
 import ShoppingCart from './components/ShoppingCart/ShoppingCart';
+import ModalOverlay from "./components/ModalOverlay/ModalOverlay";
+
+
 
 function App() {
 
@@ -13,7 +17,6 @@ function App() {
   const [ displayCart, updateDisplayCart ] = useState(false);
 
   const totalQuantity = shoppingCart.reduce((total, cartItem) => total + cartItem.itemQuantity, 0);
-  console.log(totalQuantity)
 
   const addToCart = (item, quantity) => {
 
@@ -84,6 +87,7 @@ function App() {
       <MainWrapper>
         <ItemDetail addToCart={addToCart} />
       </MainWrapper>
+      {/* <ModalOverlay /> */}
     </Container>
     </>
   )

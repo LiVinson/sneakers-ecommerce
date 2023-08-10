@@ -43,17 +43,14 @@ const Overlay = styled.div`
        
     }
 `
-export default function ImageThumbnail({image, active}) {
+export default function ImageThumbnail({ image, imageIndex, alt, active, handleDisplayModal }) {
 
-    const handleClick = () => {
-        console.log("thumb clicked");
-        //Update featured image to corresponding large image using index
-    }
+
     return(
-        <ImageWrapper onClick={handleClick}>
+        <ImageWrapper onClick={()=> { handleDisplayModal(imageIndex) }}>
             <picture>
-                <source srcSet={`./assets/images/${image.fileName}`}/>
-                <Image src={`./assets/images/${image.fileName}`} width={88} height={88} alt={image.alt} />
+                <source srcSet={`./assets/images/${image.thumbnail}`}/>
+                <Image src={`./assets/images/${image.thumbnail}`} width={88} height={88} alt={alt} />
             </picture>
             {active ? <ActiveOverlay /> : <Overlay/>}
         </ImageWrapper>

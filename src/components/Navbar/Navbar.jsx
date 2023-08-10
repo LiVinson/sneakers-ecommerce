@@ -43,7 +43,7 @@ const CartIcon = styled(CartSVG)`
     margin-right: 4.6rem;
 `
 
-const CartQuantity = styled.span`
+const CartQuantityBubble = styled.span`
     position:absolute;
     top: 1rem;
     left: 1rem;
@@ -76,7 +76,7 @@ export default function Navbar({displayCart, updateDisplayCart, totalQuantity}) 
             </WrapperLeft>
             <WrapperRight>
                 <CartIcon  onClick={handleClick}/>
-                {totalQuantity> 0 && <CartQuantity>{totalQuantity}</CartQuantity>}
+                {totalQuantity> 0 && <CartQuantityBubble>{totalQuantity}</CartQuantityBubble>}
                 <Avatar src={avatarImgSrc}/>
             </WrapperRight>
         </Nav>

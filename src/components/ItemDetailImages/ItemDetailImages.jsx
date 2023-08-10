@@ -15,16 +15,23 @@ const ThumbnailsWrapper = styled.div`
 `;
 
 
-export default function ItemDetailImages({featuredImage, thumbnailImages}) {
+export default function ItemDetailImages({images, featuredImageIndex, handleDisplayModal}) {
 
   let [featuredIndex, setFeaturedIndex] = useState(0);
+
     return (
         <DetailImagesWrapper>
-            <FeaturedImage image={featuredImage} />
+            <FeaturedImage image={images[featuredImageIndex]} />
             <ThumbnailsWrapper>
-            {thumbnailImages.map((image, index) => (
-                <ImageThumbnail key={index} image={image} active={index == featuredIndex}/>
-            ))}
+              {images.map((image, index) => (
+                  <ImageThumbnail 
+                    imageIndex={index}
+                    handleDisplayModal={handleDisplayModal} 
+                    key={index} 
+                    image={image} 
+                    active={index == featuredIndex}
+                  />
+              ))}
             </ThumbnailsWrapper>
       </DetailImagesWrapper>
     )
