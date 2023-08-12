@@ -22,7 +22,7 @@ const SliderToggleButton = styled.span`
     top: 27.5rem;
     transform: translate(-50%, -50%);
     z-indez:1500;
-
+    cursor: pointer;
     & > svg {
         position: absolute;
         top:50%;
@@ -34,17 +34,17 @@ const SliderToggleButton = styled.span`
 
     
 
-export default function FeaturedImage({image, modal}) {
+export default function FeaturedImage({image, modal, changeFeaturedImageIndex}) {
     return (
         <>
-        {modal && <SliderToggleButton>
+        {modal && <SliderToggleButton onClick={()=>{ changeFeaturedImageIndex("previous")}}>
             <BeforeSVG />
         </SliderToggleButton>}
         <picture>
             <source srcSet={`./assets/images/${image.featured}`}/>
             <Image src={`./assets/images/${image.featured}`} modal={modal} alt={image.alt} />
         </picture>
-        {modal && <SliderToggleButton>
+        {modal && <SliderToggleButton onClick={()=>{ changeFeaturedImageIndex("next")}}>
             <AfterSVG />
         </SliderToggleButton>}
         </>

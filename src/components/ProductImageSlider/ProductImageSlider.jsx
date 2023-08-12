@@ -22,23 +22,20 @@ const ThumbnailsWrapper = styled.div`
 
 
 
-export default function ProductImageSlider({ images, featuredImageIndex }) {
+export default function ProductImageSlider({ images, featuredImageIndex, handleDisplayModal, changeFeaturedImageIndex  }) {
     
-  
   return (
       <>
         <div>
-          <FeaturedImage image={images[featuredImageIndex]} modal={true} />
+          <FeaturedImage image={images[featuredImageIndex]} modal={true} changeFeaturedImageIndex={changeFeaturedImageIndex} />
           <ThumbnailsWrapper>
             {images.map((image, index) => (
               <ImageThumbnail
                 imageIndex={index}
-                // handleDisplayModal={handleDisplayModal} 
+                handleDisplayModal={handleDisplayModal} 
                 key={index} 
                 image={image} 
                 active={index == featuredImageIndex}  
-
-              //   active={index == featuredIndex}
               />
             ))}
           </ThumbnailsWrapper>

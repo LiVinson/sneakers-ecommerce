@@ -16,9 +16,6 @@ const ThumbnailsWrapper = styled.div`
 
 
 export default function ItemDetailImages({images, featuredImageIndex, handleDisplayModal}) {
-
-  let [featuredIndex, setFeaturedIndex] = useState(0);
-
     return (
         <DetailImagesWrapper>
             <FeaturedImage image={images[featuredImageIndex]} />
@@ -29,7 +26,7 @@ export default function ItemDetailImages({images, featuredImageIndex, handleDisp
                     handleDisplayModal={handleDisplayModal} 
                     key={index} 
                     image={image} 
-                    active={index == featuredIndex}
+                    active={index == featuredImageIndex}
                   />
               ))}
             </ThumbnailsWrapper>

@@ -86,6 +86,16 @@ export default function ItemDetail({ addToCart, id = 0 }) {
       setDisplayModal(true);
     }
   };
+
+  const changeFeaturedImageIndex = (changeType) => {
+    let newIndex;
+    if(changeType === "next") {
+      newIndex = featuredImageIndex  === item.images.length-1 ? 0 : featuredImageIndex + 1;
+    } else if(changeType === "previous") {
+      newIndex = featuredImageIndex === 0 ? item.images.length - 1 : featuredImageIndex - 1;
+    }
+    setFeaturedImageIndex(newIndex);
+  }
   return (
     <>
       {loading ? (
@@ -110,13 +120,14 @@ export default function ItemDetail({ addToCart, id = 0 }) {
               </QuantityCartWrapper>
             </DetailContentWrapper>
           </ItemDetailContainer>
-          <Modal show={true}>
+          <Modal show={displayModal}>
             <ProductImageSlider
               featuredImageIndex={featuredImageIndex}
               images={item.images}
               displayModal={displayModal}
               handleDisplayModal={handleDisplayModal}
               setDisplayModal={setDisplayModal}
+              changeFeaturedImageIndex={changeFeaturedImageIndex}
             />
           </Modal>
         </>
