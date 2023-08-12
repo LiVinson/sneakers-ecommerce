@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 import FeaturedImage from "../FeaturedImage/FeaturedImage";
 import ImageThumbnail from "../ImageThumbnail/ImageThumbnail";
-
+import { ReactComponent as CloseSVG } from "../../assets/images/icon-close.svg"
 
 
 
@@ -20,13 +20,23 @@ const ThumbnailsWrapper = styled.div`
   // margin-top: 3.2rem;
 `;
 
+const StyledCloseSVG = styled(CloseSVG)`
+  position:absolute;
+  width:2rem;
+  height:2rem;
+  top:-4.4rem;
+  right:0;
+  cursor:pointer;
+`
 
 
-export default function ProductImageSlider({ images, featuredImageIndex, handleDisplayModal, changeFeaturedImageIndex  }) {
+
+export default function ProductImageSlider({ images, featuredImageIndex, handleDisplayModal, changeFeaturedImageIndex, setDisplayModal }) {
     
   return (
       <>
         <div>
+          <StyledCloseSVG fill="#fff" onClick={() => setDisplayModal(false)}/>
           <FeaturedImage image={images[featuredImageIndex]} modal={true} changeFeaturedImageIndex={changeFeaturedImageIndex} />
           <ThumbnailsWrapper>
             {images.map((image, index) => (
