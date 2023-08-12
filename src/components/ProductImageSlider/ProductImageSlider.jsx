@@ -5,42 +5,35 @@ import ImageThumbnail from "../ImageThumbnail/ImageThumbnail";
 
 
 
-const ModalWrapper = styled.div`
-  z-index:1000;
-  position:absolute
-`;
+// const ModalWrapper = styled.div`
+//   z-index:1000;
+//   position:absolute;
+//   width: 55rem;
+//   left: calc(50% - 22.5rem)
+// `;
 
 const ThumbnailsWrapper = styled.div`
+  width:44.5rem;
   display: flex;
   justify-content: space-between;
-  margin-top: 3.2rem;
+  margin: 3.2rem auto 0 auto
+  // margin-top: 3.2rem;
 `;
 
-const Overlay = styled.div`
-position: fixed;
-width: 100%;
-top: 0;
-left: 0;
-height: 100%;
-border: solid 1px red;
-background-color: RGBA(0, 0, 0, .75);
-
-z-index: 10000;
-`
 
 
-export default function ProductImageModal({ images, featuredImageIndex, displayModal=false, handleDisplayModal }) {
-    return (
+export default function ProductImageSlider({ images, featuredImageIndex }) {
+    
+  
+  return (
       <>
-        {displayModal && 
-        <Overlay>
-        <ModalWrapper>
-          <FeaturedImage image={images[featuredImageIndex]} />
+        <div>
+          <FeaturedImage image={images[featuredImageIndex]} modal={true} />
           <ThumbnailsWrapper>
             {images.map((image, index) => (
               <ImageThumbnail
                 imageIndex={index}
-                handleDisplayModal={handleDisplayModal} 
+                // handleDisplayModal={handleDisplayModal} 
                 key={index} 
                 image={image} 
                 active={index == featuredImageIndex}  
@@ -49,9 +42,9 @@ export default function ProductImageModal({ images, featuredImageIndex, displayM
               />
             ))}
           </ThumbnailsWrapper>
-      </ModalWrapper>
-    </Overlay>
-    }
+      </div>
+   
+    
  </>
 
   );

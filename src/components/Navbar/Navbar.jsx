@@ -76,7 +76,7 @@ export default function Navbar({displayCart, updateDisplayCart, totalQuantity}) 
             </WrapperLeft>
             <WrapperRight>
                 <CartIcon  onClick={handleClick}/>
-                {totalQuantity> 0 && <CartQuantityBubble>{totalQuantity}</CartQuantityBubble>}
+                {totalQuantity > 0 && <CartQuantityBubble>{totalQuantity}</CartQuantityBubble>}
                 <Avatar src={avatarImgSrc}/>
             </WrapperRight>
         </Nav>

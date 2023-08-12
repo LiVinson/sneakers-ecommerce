@@ -35,6 +35,7 @@ const GlobalStyle = createGlobalStyle`
         font-size: 1.6rem;
         font-weight: var(--font-regular);   
         background-color:var(--white);  
+        position:relative;
     }
 
     p, li {

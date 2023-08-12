@@ -6,7 +6,6 @@ import GlobalStyle from './global-design/GlobalStyle';
 import MainWrapper from './components/MainWrapper/MainWrapper'
 import ItemDetail from './components/ItemDetail/ItemDetail'
 import ShoppingCart from './components/ShoppingCart/ShoppingCart';
-import ModalOverlay from "./components/ModalOverlay/ModalOverlay";
 
 
 
@@ -75,6 +74,7 @@ function App() {
   const removeFromCart = () => {
 
   }
+
   return (
     <>
     <GlobalStyle />
@@ -87,8 +87,9 @@ function App() {
       <MainWrapper>
         <ItemDetail addToCart={addToCart} />
       </MainWrapper>
-      {/* <ModalOverlay /> */}
+      
     </Container>
+
     </>
   )
 }
