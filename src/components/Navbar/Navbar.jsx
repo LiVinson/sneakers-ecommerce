@@ -1,9 +1,10 @@
+import { useState } from 'react'
 import styled from 'styled-components';
 import SVG from 'react-inlinesvg';
 import logo from '../../assets/images/logo.svg';
 import cart from '../../assets/images/icon-cart.svg'
 import avatarImgSrc from '../../assets/images/image-avatar.png'
-import { device } from "../../global-design/devices"
+import { device } from '../../global-design/devices'
 
 
 const Nav = styled.nav`
@@ -156,15 +157,20 @@ const Avatar = styled.img`
 
 `
 
-export default function Navbar({displayCart, updateDisplayCart, totalQuantity}) {
+export default function Navbar({displayCart, updateDisplayCart, totalQuantity, toggleMobileMenu}) {
+
+    const [displayMobile, updateDisplayMobile ] = useState(false);
 
     const handleClick = () => {
         updateDisplayCart(!displayCart);
     }
+
+
+
     return (
         <Nav>
             <WrapperLeft>
-            <MobileMenuIcon />
+            <MobileMenuIcon onClick={toggleMobileMenu} />
             <SVG src={logo}/>
             <MenuList>
                 <MenuListItem><MenuListLink href="#">Collections</MenuListLink></MenuListItem>

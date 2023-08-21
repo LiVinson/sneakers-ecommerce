@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { styled } from "styled-components";
 import Navbar from './components/Navbar/Navbar';
+import MobileNav from './components/MobileNav/MobileNav'
 import Container from './components/Container/Container';
 import GlobalStyle from './global-design/GlobalStyle';
 import MainWrapper from './components/MainWrapper/MainWrapper'
@@ -11,27 +12,24 @@ import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 
 function App() {
 
+  const [displayMobile, updateDisplayMobile ] = useState(false);
+
   const [ shoppingCart, updateShoppingCart ] = useState([]);
 
   const [ displayCart, updateDisplayCart ] = useState(false);
 
   const totalQuantity = shoppingCart.length ? shoppingCart.reduce((total, cartItem) => total + cartItem.itemQuantity, 0) : 0;
 
-  const addToCart = (item, quantity) => {
+  const toggleMobileMenu = ()=> {
+    console.log("toggle")
+    updateDisplayMobile(!displayMobile);
+}
 
-    // console.log(item);
-    // console.log(quantity);
-    //check if cart contains item
-    //If so, 
-      //filter for item and update quantity
-      //Swap in updated item
-    //else add item to end of shopping cart
-    console.log(shoppingCart)
+  const addToCart = (item, quantity) => {
 
     const existingItem = shoppingCart.find(cartItem => cartItem.itemId === item.id);
 
     if(existingItem) {
-      console.log("update quantity");
     
       const updatedCart = shoppingCart.map((shoppingCartItem) => {
         if(shoppingCartItem.itemId === item.id) {
@@ -54,7 +52,6 @@ function App() {
       updateShoppingCart(updatedCart)
 
     } else {
-      console.log("add new item ");
 
       const shoppingCartItem = {
         itemId: item.id,
@@ -79,7 +76,8 @@ function App() {
     <>
     <GlobalStyle />
     <Container>
-      <Navbar displayCart={displayCart} updateDisplayCart={updateDisplayCart} totalQuantity={totalQuantity}/>
+      <MobileNav displayMobile={displayMobile} toggleMobileMenu={toggleMobileMenu}/>
+      <Navbar displayCart={displayCart} updateDisplayCart={updateDisplayCart} totalQuantity={totalQuantity} toggleMobileMenu={toggleMobileMenu}/>
       <ShoppingCart
          displayCart={displayCart}  
          shoppingCart={shoppingCart} 
