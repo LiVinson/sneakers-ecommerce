@@ -4,9 +4,9 @@ const GlobalStyle = createGlobalStyle`
     *,
     *::after,
     *::before {
-    margin: 0;
-    padding: 0;
-    box-sizing: inherit;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
     html {
@@ -29,6 +29,10 @@ const GlobalStyle = createGlobalStyle`
 
     }
 
+    #root{
+        padding-left:2rem;
+        padding-right:2rem;
+    }
     body {
         box-sizing:border-box;
         font-family: 'Inter', sans-serif;
@@ -36,6 +40,7 @@ const GlobalStyle = createGlobalStyle`
         font-weight: var(--font-regular);   
         background-color:var(--white);  
         position:relative;
+        min-height:100vh;
     }
 
     p, li {

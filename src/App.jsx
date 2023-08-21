@@ -15,7 +15,7 @@ function App() {
 
   const [ displayCart, updateDisplayCart ] = useState(false);
 
-  const totalQuantity = shoppingCart.reduce((total, cartItem) => total + cartItem.itemQuantity, 0);
+  const totalQuantity = shoppingCart.length ? shoppingCart.reduce((total, cartItem) => total + cartItem.itemQuantity, 0) : 0;
 
   const addToCart = (item, quantity) => {
 

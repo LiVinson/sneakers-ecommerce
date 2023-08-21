@@ -59,22 +59,26 @@ const MenuListLink = styled.a`
     }
 
 `
+const CartSVGWrapper = styled.div`
+    position: relative;
+    margin-right: 4.6rem;
+`
 
 const CartSVG = styled(SVG)`
-    margin-right: 4.6rem;
     cursor:pointer;
     &:hover {
         path {
             fill: black;
         }
     }
-`
 
+`
 
 const CartQuantityBubble = styled.span`
     position:absolute;
-    top: 1rem;
-    left: 1rem;
+    top: -50%;
+    left: 50%;
+    transform: translateY(50%);
     color: var(--white);
     background-color: var(--orange);
     font-size: 1rem;
@@ -83,6 +87,7 @@ const CartQuantityBubble = styled.span`
     width: 1.9rem;
     text-align:center;
     border-radius:.65rem;
+    display:inline-block;
     `
 const Avatar = styled.img`
     height: 5rem;
@@ -94,7 +99,6 @@ const Avatar = styled.img`
     }
 
 `
-
 
 export default function Navbar({displayCart, updateDisplayCart, totalQuantity}) {
 
@@ -114,8 +118,10 @@ export default function Navbar({displayCart, updateDisplayCart, totalQuantity}) 
             </MenuList>
             </WrapperLeft>
             <WrapperRight>
-                <CartSVG src={cart}  onClick={handleClick}/>
-                {totalQuantity > 0 && <CartQuantityBubble>{totalQuantity}</CartQuantityBubble>}
+                <CartSVGWrapper>
+                    <CartSVG src={cart}  onClick={handleClick} />
+                    {totalQuantity > 0 && <CartQuantityBubble>{totalQuantity}</CartQuantityBubble>}
+                </CartSVGWrapper>
                 <Avatar src={avatarImgSrc}/>
             </WrapperRight>
         </Nav>
