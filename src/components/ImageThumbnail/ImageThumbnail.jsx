@@ -4,6 +4,9 @@ import { styled } from "styled-components"
 const ImageWrapper = styled.div`
     position:relative;
     cursor: pointer;
+    &:not(:last-child){
+        margin-right:.5rem;
+    }
 
     &:hover div::after { 
         visibility:visible;

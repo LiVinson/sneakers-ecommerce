@@ -1,22 +1,64 @@
 import styled from 'styled-components';
+import SVG from 'react-inlinesvg';
 import logo from '../../assets/images/logo.svg';
 import cart from '../../assets/images/icon-cart.svg'
 import avatarImgSrc from '../../assets/images/image-avatar.png'
-import SVG from 'react-inlinesvg';
+import { device } from "../../global-design/devices"
+
 
 const Nav = styled.nav`
     display: flex;
     justify-content: space-between;
     border-bottom: solid 1px #E4E9F2;
+
+    @media ${device.tablet}{
+        padding-top:2rem;
+        padding-bottom:2.8rem;
+    }
+
 `
 const WrapperLeft = styled.div`
     display:flex;
     align-items:center;
 `
-const WrapperRight=styled.div`
+const WrapperRight = styled.div`
     display:flex;
     align-items:center;
     position:relative;
+`
+
+const MobileMenuIcon = styled.span`
+    display:none;
+    width: 1.6rem;
+    height: .25rem;
+    background-color: var(--dark-gray-blue);
+    margin-right:1.6rem;
+    position:relative;
+
+    &::before,
+    &::after {
+        content: "";
+        width: 1.6rem;
+        height: .3rem;
+        background-color: var(--dark-gray-blue);
+        display:inline-block;
+        position:absolute;
+    }
+
+    &::before {
+        top: -.6rem;
+    }
+    
+    &::after {
+       top: .6rem;
+    }
+
+
+
+    @media ${device.tablet}{
+        display:inline-block;
+
+    }
 `
 
 const MenuList = styled.ul`
@@ -25,6 +67,10 @@ const MenuList = styled.ul`
     list-style: none;
     font-size:1.5rem;
     color: var(--dark-gray-blue);
+
+    @media ${device.tablet}{
+        display:none;
+    }
 `
 
 const MenuListItem = styled.li`
@@ -34,9 +80,6 @@ const MenuListItem = styled.li`
     &:not(:last-of-type) {
         margin-right:3.2rem;
     }
-
- 
-    
 `
 
 const MenuListLink = styled.a`
@@ -62,6 +105,13 @@ const MenuListLink = styled.a`
 const CartSVGWrapper = styled.div`
     position: relative;
     margin-right: 4.6rem;
+
+    @media ${device.tablet}{
+        margin-right: 2.3rem;
+
+    }
+
+
 `
 
 const CartSVG = styled(SVG)`
@@ -88,7 +138,8 @@ const CartQuantityBubble = styled.span`
     text-align:center;
     border-radius:.65rem;
     display:inline-block;
-    `
+`
+
 const Avatar = styled.img`
     height: 5rem;
     width: 5rem;
@@ -96,6 +147,11 @@ const Avatar = styled.img`
     border-radius: 50%;
     &:hover {
         border: solid .2rem var(--orange);
+    }
+
+    @media ${device.tablet}{
+        width:2.4rem;
+        height:2.4rem;
     }
 
 `
@@ -108,6 +164,7 @@ export default function Navbar({displayCart, updateDisplayCart, totalQuantity}) 
     return (
         <Nav>
             <WrapperLeft>
+            <MobileMenuIcon />
             <SVG src={logo}/>
             <MenuList>
                 <MenuListItem><MenuListLink href="#">Collections</MenuListLink></MenuListItem>

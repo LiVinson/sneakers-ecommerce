@@ -30,8 +30,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     #root{
-        padding-left:2rem;
-        padding-right:2rem;
+        padding-left:2.4rem;
+        padding-right:2.4rem;
     }
     body {
         box-sizing:border-box;

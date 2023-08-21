@@ -7,16 +7,24 @@ import ItemQuantityToggle from "../ItemQuantityToggle/ItemQuantityToggle";
 import ItemDetailImages from "../ItemDetailImages/ItemDetailImages";
 import ProductImageSlider from "../ProductImageSlider/ProductImageSlider";
 import Modal from "../Modal/Modal";
+import { device } from "../../global-design/devices";
 
 const ItemDetailContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 101.5rem;
+  max-width: 101.5rem;
+
+  @media ${device.tablet}{
+    flex-wrap:wrap;
+    justify-content: center;
+
+}
 `;
 
 const DetailContentWrapper = styled.div`
-  width: 44.5rem;
+  max-width: 44.5rem;
   padding-top: 6.2rem;
+  margin-left: 3rem;
 `;
 
 const Brand = styled.p`

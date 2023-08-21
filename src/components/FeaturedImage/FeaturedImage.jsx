@@ -4,8 +4,9 @@ import { ReactComponent as AfterSVG}  from "../../assets/images/icon-next.svg";
 
 const Image = styled.img`
     border-radius:1.5rem;
+    max-width:100%;
     width: ${(props) => props.modal ? "55rem" : "45rem"};
-    height: ${(props) => props.modal ? "55rem" : "45rem"};
+    height: auto;
 
 `
 
