@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components"
+import { device } from "./devices";
 
 const GlobalStyle = createGlobalStyle`
     *,
@@ -32,6 +33,10 @@ const GlobalStyle = createGlobalStyle`
     #root{
         padding-left:2.4rem;
         padding-right:2.4rem;
+
+        @media ${device.mobileL} {
+            padding: 0;
+        }
     }
     body {
         box-sizing:border-box;
@@ -48,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     picture {
-        display:inline-block;
+        // display:inline-block;
         line-height:0;
     }
 `

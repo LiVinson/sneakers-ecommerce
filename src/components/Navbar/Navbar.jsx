@@ -13,8 +13,13 @@ const Nav = styled.nav`
     border-bottom: solid 1px #E4E9F2;
 
     @media ${device.tablet}{
-        padding-top:2rem;
-        padding-bottom:2.8rem;
+        padding-top:1.9rem;
+        padding-bottom:2.5rem;
+    }
+
+    @media ${device.mobileL}{
+        padding: 1.9rem 2.4rem 2.5rem;
+        border-bottom:none;
     }
 
 `

@@ -4,7 +4,7 @@ import ShoppingCartList from "./ShoppingCartList";
 const Cart = styled.div`
     width: 36rem;
     min-height: 25.6rem;
-    position:fixed;
+    position: absolute;
     right:8.9rem;
     top:9.4rem;
     z-index:1000;

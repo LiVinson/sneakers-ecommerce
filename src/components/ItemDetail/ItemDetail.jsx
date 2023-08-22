@@ -18,7 +18,12 @@ const ItemDetailContainer = styled.div`
     flex-wrap:wrap;
     justify-content: center;
 
-}
+  }
+
+  @media ${device.mobileM} {
+    flex-direction: column;
+    justify-content: initial;
+  }
 `;
 
 const DetailContentWrapper = styled.div`
@@ -83,8 +88,8 @@ export default function ItemDetail({ addToCart, id = 0 }) {
   };
 
   const handleDisplayModal = (imageIndex) => {
-    console.log("open modal to this image");
-    console.log(imageIndex);
+    // console.log("open modal to this image");
+    // console.log(imageIndex);
 
     if (displayModal) {
       // setFeaturedImage(image);
@@ -115,6 +120,8 @@ export default function ItemDetail({ addToCart, id = 0 }) {
               handleDisplayModal={handleDisplayModal}
               images={item.images}
               featuredImageIndex={featuredImageIndex}
+              changeFeaturedImageIndex={changeFeaturedImageIndex}
+
             />
             <DetailContentWrapper>
               <Brand>{item.brand}</Brand>
