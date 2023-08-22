@@ -5,9 +5,10 @@ import closeMenu from '../../assets/images/icon-close.svg'
 
 
 const NavWrapper = styled.div`
-
     position:fixed;
     left:0;
+    padding-top:9.2rem;
+    padding-left:2rem;
     height:100%;
     width:25rem;
     z-index:2000;
@@ -16,8 +17,8 @@ const NavWrapper = styled.div`
 
 const CloseNavIcon = styled(SVG)`
     
-fill: var(--dark-gray-blue);
-position:absolute;
+    fill: var(--dark-gray-blue);
+    position:absolute;
     width:13.44px;
     height:13.44px;
     top:2.48rem;
@@ -26,9 +27,9 @@ position:absolute;
 `
 
 const MenuList = styled.ul`
-    display: flex;
-    flex-direction:column;
-    margin-left:5.6rem;
+    // display: flex;
+    // flex-direction:column;
+    // margin-left:5.6rem;
     list-style: none;
     font-size:1.5rem;
     color: var(--dark-gray-blue);
@@ -37,16 +38,13 @@ const MenuList = styled.ul`
 `
 
 const MenuListItem = styled.li`
-    position:relative;
-    padding-top: 4.1rem;
-    padding-bottom: 4.5rem;
-    &:not(:last-of-type) {
-        margin-right:3.2rem;
-    }
+    font-size:1.8rem;
+    font-weight: var(--font-bold);
+    margin-bottom: 2rem;
 `
 
 const MenuListLink = styled.a`
-    color: var(--dark-gray-blue);
+    color: var(--dark-blue);
     text-decoration:none;
 
     &:hover {
