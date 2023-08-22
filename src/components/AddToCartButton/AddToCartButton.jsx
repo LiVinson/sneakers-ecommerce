@@ -1,5 +1,8 @@
 import { styled } from 'styled-components'
-import { ReactComponent as WhiteCartSVG } from '../../assets/images/icon-cart-white.svg'
+import SVG from 'react-inlinesvg';
+import PrimaryButton from '../PrimaryButton/PrimaryButton';
+import whiteCart from '../../assets/images/icon-cart-white.svg'
+
 
 const Button = styled.button`
     padding:1.9rem 7.6rem 1.8rem 7.7rem;
@@ -14,7 +17,7 @@ const Button = styled.button`
 
 `
 
-const CartIcon = styled(WhiteCartSVG)`
+const ShoppingCartSVG = styled(SVG)`
     margin-right: 1.55rem;
 `
 
@@ -23,9 +26,9 @@ export default function AddToCartButton({handleAddToCart}) {
 
 
     return (
-        <Button onClick={handleAddToCart}>
-            <CartIcon/> 
+        <PrimaryButton onClick={handleAddToCart}>
+            <ShoppingCartSVG src={whiteCart}/> 
             Add to cart
-        </Button>
+        </PrimaryButton>
     )
 }
