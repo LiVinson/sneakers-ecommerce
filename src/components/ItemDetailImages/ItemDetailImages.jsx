@@ -16,7 +16,6 @@ const ThumbnailsWrapper = styled.div`
 
 
 export default function ItemDetailImages({images, featuredImageIndex, handleDisplayModal}) {
-  console.log("featured image index: ", featuredImageIndex);
     return (
         <DetailImagesWrapper>
             <FeaturedImage image={images[featuredImageIndex]} />

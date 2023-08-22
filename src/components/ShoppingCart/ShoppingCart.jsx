@@ -11,6 +11,7 @@ const Cart = styled.div`
     border-radius: 1rem;
     background: var(--white);
     box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.50);
+   
 `
 
 const CartHeader = styled.p`

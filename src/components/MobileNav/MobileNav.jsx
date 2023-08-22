@@ -64,7 +64,6 @@ const MenuListLink = styled.a`
 
 `
 export default function MobileNav({ displayMobile, toggleMobileMenu }) {
-    console.log('displayMobile: ', displayMobile)
     return (
         displayMobile ? (
             <NavWrapper>
