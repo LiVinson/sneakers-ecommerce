@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { styled } from "styled-components";
 import Navbar from './components/Navbar/Navbar';
 import MobileNav from './components/MobileNav/MobileNav'
 import Container from './components/Container/Container';
@@ -14,24 +13,23 @@ function App() {
 
   const [displayMobile, updateDisplayMobile ] = useState(false);
 
-  const [ shoppingCart, updateShoppingCart ] = useState([]);
+  const [ shoppingCartItems, updateShoppingCartItems ] = useState([]);
 
   const [ displayCart, updateDisplayCart ] = useState(false);
 
-  const totalQuantity = shoppingCart.length ? shoppingCart.reduce((total, cartItem) => total + cartItem.itemQuantity, 0) : 0;
+  const totalQuantity = shoppingCartItems.length ? shoppingCartItems.reduce((total, cartItem) => total + cartItem.itemQuantity, 0) : 0;
 
   const toggleMobileMenu = ()=> {
-    console.log("toggle")
     updateDisplayMobile(!displayMobile);
 }
 
   const addToCart = (item, quantity) => {
 
-    const existingItem = shoppingCart.find(cartItem => cartItem.itemId === item.id);
+    const existingItem = shoppingCartItems.find(cartItem => cartItem.itemId === item.id);
 
     if(existingItem) {
     
-      const updatedCart = shoppingCart.map((shoppingCartItem) => {
+      const updatedCart = shoppingCartItems.map((shoppingCartItem) => {
         if(shoppingCartItem.itemId === item.id) {
           const newQuantity = shoppingCartItem.itemQuantity + quantity;
           const newPrice = item.price * item.saleAmount;
@@ -41,7 +39,6 @@ function App() {
             itemPrice: newPrice,
             testing: true
           }
-          console.log(updatedItem)
           return updatedItem
         } else {
           return shoppingCartItem
@@ -49,7 +46,7 @@ function App() {
         
       })
   
-      updateShoppingCart(updatedCart)
+      updateShoppingCartItems(updatedCart)
 
     } else {
 
@@ -60,16 +57,15 @@ function App() {
         itemPrice: item.price * item.saleAmount,
         itemQuantity: quantity
       }
-      // console.log(shoppingCartItem);
-      const updatedCart = [...shoppingCart, shoppingCartItem]
-  
-        updateShoppingCart(updatedCart)
+      const updatedCart = [...shoppingCartItems, shoppingCartItem]
+      updateShoppingCartItems(updatedCart)
     }
 
   }
 
-  const removeFromCart = () => {
-
+  const removeFromCart = (itemId) => {
+    const newShoppingCartItems = shoppingCartItems.filter(item => item.itemId !== itemId);
+    updateShoppingCartItems(newShoppingCartItems);
   }
 
   return (
@@ -80,7 +76,7 @@ function App() {
       <Navbar displayCart={displayCart} updateDisplayCart={updateDisplayCart} totalQuantity={totalQuantity} toggleMobileMenu={toggleMobileMenu}/>
       <ShoppingCart
          displayCart={displayCart}  
-         shoppingCart={shoppingCart} 
+         shoppingCart={shoppingCartItems} 
          removeFromCart={removeFromCart} />
       <MainWrapper>
         <ItemDetail addToCart={addToCart} />

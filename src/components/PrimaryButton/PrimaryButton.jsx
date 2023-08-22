@@ -9,7 +9,8 @@ const Button = styled.button`
     font-size:1.6rem;
     font-weight: var(--font-bold);
     line-height:1;
-    width: ${props => props.$width || 'auto'}
+    width: ${props => props.$width || 'auto'};
+    cursor: pointer;
 
 `
 

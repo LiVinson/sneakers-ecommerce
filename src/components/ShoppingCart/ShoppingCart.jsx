@@ -39,7 +39,7 @@ export default function ShoppingCart({displayCart, shoppingCart, removeFromCart 
         <>
         {displayCart &&  <Cart>
             <CartHeader>Cart</CartHeader> 
-            {shoppingCart.length ? <ShoppingCartList shoppingList={shoppingCart}/> : <EmptyCartText>Your cart is empty.</EmptyCartText>}
+            {shoppingCart.length ? <ShoppingCartList shoppingList={shoppingCart} removeFromCart={removeFromCart}/> : <EmptyCartText>Your cart is empty.</EmptyCartText>}
             
         </Cart>
     }
