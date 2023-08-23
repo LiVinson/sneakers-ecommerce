@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import ItemPrice from "../ItemPrice/ItemPrice";
 import products from "../../data/products/products";
+import ItemPrice from "../ItemPrice/ItemPrice";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 import ItemQuantityToggle from "../ItemQuantityToggle/ItemQuantityToggle";
 import ItemDetailImages from "../ItemDetailImages/ItemDetailImages";
@@ -30,6 +30,12 @@ const DetailContentWrapper = styled.div`
   max-width: 44.5rem;
   padding-top: 6.2rem;
   margin-left: 3rem;
+
+  @media ${device.mobileM} {
+    padding: 2.4rem 2.4rem 8.8rem;
+    margin-left: 0rem;
+
+  }
 `;
 
 const Brand = styled.p`
@@ -39,6 +45,13 @@ const Brand = styled.p`
   line-height: 1;
   margin-bottom: 2.4rem;
   text-transform: uppercase;
+  letter-spacing: .2rem;
+
+  @media ${device.mobileM} {
+    font-size: 1.2rem;
+    letter-spacing: .185rem;
+    margin-bottom: 1.9rem;
+  }
 `;
 
 const ItemName = styled.h1`
@@ -47,13 +60,25 @@ const ItemName = styled.h1`
   font-weight: var(--font-bold);
   line-height: 4.8rem;
   margin-bottom: 3.2rem;
+
+  @media ${device.mobileM} {
+    font-size: 2.8rem;
+    line-height: 3.2rem;
+    margin-bottom: 1.5rem;
+  }
 `;
+
+
 const ItemDescription = styled.p`
   color: var(--dark-gray-blue);
-  font-size: 1.6rem;
-  line-height: 2.6rem;
   margin-bottom: 2.4rem;
+
+  @media ${device.mobileM} {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+  }
 `;
+
 const ItemQuantity = styled(ItemQuantityToggle)`
   margin-right: 1.6rem;
 `;

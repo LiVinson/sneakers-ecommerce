@@ -1,4 +1,5 @@
 import { styled } from 'styled-components'
+import { device } from "../../global-design/devices";
 
 const Button = styled.button`
     padding: 1.9rem 7.6rem 1.8rem 7.7rem;
@@ -11,6 +12,15 @@ const Button = styled.button`
     line-height:1;
     width: ${props => props.$width || 'auto'};
     cursor: pointer;
+
+       width:6.5rem;
+
+       @media ${device.mobileM} {
+        width: 100%;
+        box-shadow: 0px 20px 50px -20px var(--orange);
+
+     
+      }
 
 `
 

@@ -1,14 +1,26 @@
 
 import {styled} from "styled-components";
-import {ReactComponent as MinusSVG } from "../../assets/images/icon-minus.svg";
-import {ReactComponent as PlusSVG } from "../../assets/images/icon-plus.svg";
+import { device } from "../../global-design/devices";
+import SVG from 'react-inlinesvg';
+import prevSVG from "../../assets/images/icon-minus.svg";
+import nextSVG from "../../assets/images/icon-plus.svg";
 
 const Wrapper = styled.div`
     display:inline-block;
     background-color: var(--light-gray-blue);
     border-radius: 1rem;
+    @media ${device.mobileM} {
+        width: 100%;
+        margin-bottom:2.4rem;
+      }
 `
 
+const Previous = styled(SVG)`
+`
+
+const Next = styled(SVG)`
+
+`
 const Quantity = styled.span`
     display:inline-block;
     color: var(--dark-blue);
@@ -19,7 +31,9 @@ const Quantity = styled.span`
     width:6.5rem;
     vertical-align:middle;
 
-
+    @media ${device.mobileM} {
+        width: calc(100% - 12rem);
+    }
 `
 
 const QuantityButton = styled.button`
@@ -33,6 +47,12 @@ const QuantityButton = styled.button`
     & > * {
         vertical-align:middle;
     }
+
+    @media ${device.mobileM} {
+        padding-left: 2.4rem;
+        padding-right:2.4rem;
+
+      }
 `
 
 
@@ -56,9 +76,9 @@ export default function ItemQuantityToggle({ className, quantity, setQuantity })
 
     return (
         <Wrapper className={className ? className: '' }>
-            <QuantityButton onClick={decrementQuantity}><MinusSVG /></QuantityButton>
+            <QuantityButton onClick={decrementQuantity}><Previous src={prevSVG}/></QuantityButton>
             <Quantity>{quantity}</Quantity>
-            <QuantityButton onClick={incrementQuantity}><PlusSVG /></QuantityButton>
+            <QuantityButton onClick={incrementQuantity}><Next src={nextSVG}/></QuantityButton>
         </Wrapper>
     )
 }

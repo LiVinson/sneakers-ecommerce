@@ -1,4 +1,4 @@
-import { styled } from "styled-components"
+import { styled, css } from "styled-components"
 import { device } from '../../global-design/devices';
 import prevArrow  from "../../assets/images/icon-previous.svg";
 import nextArrow  from "../../assets/images/icon-next.svg";
@@ -16,9 +16,11 @@ const Image = styled.img`
     height: auto;
 
     @media ${device.mobileM} {
+        display:block;
         border-radius:0;
-        width: 100%;
         height: 30rem;
+        object-fit: cover;
+        object-position: top;
     }
 
 
@@ -54,9 +56,12 @@ const SliderBtn = styled.span`
         display: inline-block;
         height:4rem;
         width:4rem;
-        left: ${props => props.$left ? '1.6rem': 'initial'};
-        right: ${props => props.$left ? 'initial': '1.6rem'};
-
+        ${props => props.$left && css`
+            left:1.6rem;
+        `}
+        ${props => !props.$left && css`
+            right:1.6rem;
+        `}
     }
 `
 
