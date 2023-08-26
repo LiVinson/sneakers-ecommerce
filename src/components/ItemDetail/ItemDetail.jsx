@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import products from "../../data/products/products";
 import ItemPrice from "../ItemPrice/ItemPrice";
@@ -119,6 +119,8 @@ export default function ItemDetail({ addToCart, id = 0 }) {
   const [featuredImage, setFeaturedImage] = useState(null);
   const [featuredImageIndex, setFeaturedImageIndex] = useState(0);
 
+  const imageContainerRef = useRef(null);
+
   useEffect(() => {
     const item = fetchItemById(id);
     // console.log(item)
@@ -139,8 +141,13 @@ export default function ItemDetail({ addToCart, id = 0 }) {
       // setFeaturedImage(image);
       setFeaturedImageIndex(imageIndex);
     } else {
+
+      //display modal on tablet or larger screens, else update featured image without modal
+        if(imageContainerRef.current.offsetWidth > 450) {
+          setDisplayModal(true);
+        }
+
       setFeaturedImageIndex(imageIndex);
-      setDisplayModal(true);
     }
   };
 
@@ -159,7 +166,7 @@ export default function ItemDetail({ addToCart, id = 0 }) {
         "Loading!"
       ) : (
         <>
-          <ItemDetailContainer>
+          <ItemDetailContainer ref={imageContainerRef}>
             <ItemDetailImages
               handleDisplayModal={handleDisplayModal}
               images={item.images}

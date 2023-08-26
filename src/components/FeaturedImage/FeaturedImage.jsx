@@ -46,6 +46,7 @@ const SliderBtnSVG = styled(SVG)`
     left:50%;
     transform: translate(-50%, -50%);
 
+
     @media ${device.mobileL} {
         path {
             width: 4rem;
@@ -66,11 +67,33 @@ const SliderBtn = styled.span`
     transform: translateY(-50%);
     z-index:500;
     cursor: pointer;
+    ${props => props.$left && css`
+        transform: translate(-50%, -50%);
+    `}
+
+    ${props => !props.$left && css`
+            right:0rem;
+            transform: translate(50%, -50%);
+     `}        
+ 
+     @media ${device.tablet} {
+        // display: inline-block;
+        height:4rem;
+        width:4rem;
+        ${props => props.$left && css`
+            left:2.6rem;
+        `}
+        ${props => !props.$left && css`
+            right:2.6rem;
+        `}
+    }
 
     @media ${device.mobileL} {
         display: inline-block;
         height:4rem;
         width:4rem;
+        transform: translate(0%, -50%);
+
         ${props => props.$left && css`
             left:1.6rem;
         `}

@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 const Overlay = styled.div`
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
@@ -13,8 +13,9 @@ const Overlay = styled.div`
 const ModalWrapper = styled.div`
   z-index:2000;
   position:absolute;
-  top: 8.9rem;
-  left: calc(50% - 22.5rem);
+  top: 13.3rem;
+  left: 50%;
+  transform: translateX(-50%);
 `;
 
 export default function Modal({ show, children }) {
