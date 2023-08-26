@@ -13,10 +13,17 @@ const Button = styled.button`
     width: ${props => props.$width || '27.2rem'};
     cursor: pointer;
 
-    &:hover {
+    &:hover, &:focus {
         background-color: var(--orange-hover);
+        outline: none;
         
     }
+
+    &:focus-within {
+        outline: solid 3px var(--orange); 
+        
+    }
+
 
        @media ${device.mobileL} {
         width: 100%;

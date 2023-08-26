@@ -8,9 +8,21 @@ const ImageWrapper = styled.div`
         margin-right:.5rem;
     }
 
-    &:hover div::after { 
-        visibility:visible;
+    &:hover,
+    &:focus,
+    &:focus-within {
+        outline:none;
+        div::after { 
+            visibility:visible;
+        }
     }
+
+
+    &.active:focus-within div::after {
+        border: solid 3px var(--orange);
+    }
+    
+
 `
 const Image = styled.img`
     border-radius: 1rem;   
@@ -28,6 +40,7 @@ const ActiveOverlay = styled.div`
         border: solid 2px rgba(255, 126, 27, 1);
         border-radius: 1rem;
 
+  
     }
 `
 
@@ -50,7 +63,12 @@ export default function ImageThumbnail({ image, imageIndex, alt, active, handleD
 
 
     return(
-        <ImageWrapper onClick={()=> { handleDisplayModal(imageIndex) }}>
+        <ImageWrapper 
+            tabIndex={0}
+            onClick={()=> { handleDisplayModal(imageIndex) }} 
+            onKeyDown={(e)=> e.key=='Enter' && handleDisplayModal(imageIndex)}
+            className={active ? "active" : ""} 
+            >
             <picture>
                 <source srcSet={`./assets/images/${image.thumbnail}`}/>
                 <Image src={`./assets/images/${image.thumbnail}`} width={88} height={88} alt={alt} />

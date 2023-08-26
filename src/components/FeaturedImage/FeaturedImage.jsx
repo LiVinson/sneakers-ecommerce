@@ -63,7 +63,7 @@ const SliderBtn = styled.span`
             transform: translate(50%, -50%);
      `}        
 
-     &:hover {
+     &:hover, &:focus {
         svg {
             path {
                 stroke: var(--orange);
@@ -119,14 +119,27 @@ const SliderBtnSVG = styled(SVG)`
 export default function FeaturedImage({image, modal, changeFeaturedImageIndex}) {
     return (
         <ImageWrapper>
-            <SliderBtn $modal={modal} $left={true} onClick={()=>{ changeFeaturedImageIndex("previous")}}>
+            <SliderBtn 
+                $left={true} 
+                $modal={modal}
+                tabIndex={0}
+                onClick={()=>{ changeFeaturedImageIndex("previous")}}
+                onKeyDown={(e)=> e.key=='Enter' && changeFeaturedImageIndex("previous")}
+                >
+                
                 <SliderBtnSVG src={prevArrow} height="16" width="10" viewBox="0 0 12 18"/>
             </SliderBtn>
             <picture>
                 <source srcSet={`./assets/images/${image.featured}`}/>
                 <Image src={`./assets/images/${image.featured}`} modal={modal} alt={image.alt} />
             </picture>
-            <SliderBtn $modal={modal} onClick={()=>{ changeFeaturedImageIndex("next")}}>
+            <SliderBtn 
+                $modal={modal} 
+                tabIndex={0}
+                onClick={()=>{ changeFeaturedImageIndex("next")}}
+                onKeyDown={(e)=> e.key=='Enter' && changeFeaturedImageIndex("next")}
+
+                >
                 <SliderBtnSVG src={nextArrow} height="16" width="10" viewBox="0 0 12 18"/>
             </SliderBtn>
         </ImageWrapper>

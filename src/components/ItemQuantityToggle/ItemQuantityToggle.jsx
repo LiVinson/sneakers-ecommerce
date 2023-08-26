@@ -53,11 +53,22 @@ const QuantityButton = styled.button`
         vertical-align:middle;
     }
 
-    &:hover > svg {
-        path {
-            fill: var(--orange-hover);
+    &:hover {
+        & > svg {
+            path {
+                fill: var(--orange-hover);
+            }
         }
     }
+     &:focus-within {
+        outline: solid 2px var(--orange-hover);
+        & > svg {
+            path {
+                fill: var(--orange-hover);
+            }
+        }
+    }
+
 
     @media ${device.mobileL} {
         padding-left: 2.4rem;

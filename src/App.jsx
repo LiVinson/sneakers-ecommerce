@@ -12,9 +12,7 @@ import ShoppingCart from './components/ShoppingCart/ShoppingCart';
 function App() {
 
   const [displayMobile, updateDisplayMobile ] = useState(false);
-
   const [ shoppingCartItems, updateShoppingCartItems ] = useState([]);
-
   const [ displayCart, updateDisplayCart ] = useState(false);
 
   const totalQuantity = shoppingCartItems.length ? shoppingCartItems.reduce((total, cartItem) => total + cartItem.itemQuantity, 0) : 0;

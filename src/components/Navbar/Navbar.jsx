@@ -92,8 +92,9 @@ const MenuListLink = styled.a`
     color: var(--dark-gray-blue);
     text-decoration:none;
 
-    &:hover {
+    &:hover, &:active, &:focus, &:focus-within {
         color: var(--dark-blue);
+        outline:none;
 
         &::after {
             content:"";
@@ -106,6 +107,7 @@ const MenuListLink = styled.a`
         }
     
     }
+    
 
 `
 const CartSVGWrapper = styled.div`
@@ -122,11 +124,13 @@ const CartSVGWrapper = styled.div`
 
 const CartSVG = styled(SVG)`
     cursor:pointer;
-    &:hover {
+    &:hover, &:focus, &:focus-within {
+        outline:none;
         path {
             fill: black;
         }
     }
+
 
 `
 
@@ -151,7 +155,8 @@ const Avatar = styled.img`
     width: 5rem;
     cursor:pointer;
     border-radius: 50%;
-    &:hover {
+    &:hover, &:focus, &:focus-within {
+        outline:none;
         border: solid .2rem var(--orange);
     }
 
@@ -187,10 +192,10 @@ export default function Navbar({displayCart, updateDisplayCart, totalQuantity, t
             </WrapperLeft>
             <WrapperRight>
                 <CartSVGWrapper>
-                    <CartSVG src={cart}  onClick={handleClick} />
+                    <CartSVG src={cart}  onClick={handleClick} tabIndex={0} onKeyDown={(e)=> e.key=='Enter' && handleClick()} />
                     {totalQuantity > 0 && <CartQuantityBubble>{totalQuantity}</CartQuantityBubble>}
                 </CartSVGWrapper>
-                <Avatar src={avatarImgSrc}/>
+                <Avatar src={avatarImgSrc} tabIndex={0}/>
             </WrapperRight>
         </Nav>
 

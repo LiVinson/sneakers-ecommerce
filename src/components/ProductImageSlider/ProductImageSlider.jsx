@@ -31,7 +31,8 @@ const StyledCloseSVG = styled(CloseSVG)`
   right:0;
   cursor:pointer;
 
-  &:hover {
+  &:hover, &:focus, :focus-within {
+    outline:none;
     path {
       fill: var(--orange);
     }
@@ -45,7 +46,7 @@ export default function ProductImageSlider({ images, featuredImageIndex, handleD
   return (
       <>
         <div>
-          <StyledCloseSVG onClick={() => setDisplayModal(false)}/>
+          <StyledCloseSVG onClick={() => setDisplayModal(false)} tabIndex={0}/>
           <FeaturedImage image={images[featuredImageIndex]} modal={true} changeFeaturedImageIndex={changeFeaturedImageIndex} />
           <ThumbnailsWrapper>
             {images.map((image, index) => (
@@ -55,6 +56,7 @@ export default function ProductImageSlider({ images, featuredImageIndex, handleD
                 key={index} 
                 image={image} 
                 active={index == featuredImageIndex}  
+                tabIndex={0}
               />
             ))}
           </ThumbnailsWrapper>
