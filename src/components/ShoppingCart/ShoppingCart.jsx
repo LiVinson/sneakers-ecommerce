@@ -1,16 +1,36 @@
 import {styled} from "styled-components";
 import ShoppingCartList from "./ShoppingCartList";
+import { device } from "../../global-design/devices";
 
 const Cart = styled.div`
     width: 36rem;
     min-height: 25.6rem;
     position: absolute;
-    right:8.9rem;
+    right:-7.6rem;
     top:9.4rem;
     z-index:1000;
     border-radius: 1rem;
     background: var(--white);
     box-shadow: 0px 20px 50px -20px rgba(29, 32, 38, 0.50);
+
+
+    @media ${device.laptopM} {
+        right:.4rem;
+    }
+
+    @media ${device.tablet} {
+        top:5.4rem;
+
+    }
+    @media ${device.mobileL} {
+        top: 7.6rem;
+        //center absolute positioned element w/ set width
+        left:0;
+        right:0;
+        margin-left:auto;
+        margin-right: auto;
+        max-width:100%;
+    }
    
 `
 

@@ -9,9 +9,14 @@ const Wrapper = styled.div`
     display:inline-block;
     background-color: var(--light-gray-blue);
     border-radius: 1rem;
-    @media ${device.mobileM} {
+
+    @media ${device.tablet} {
+        margin-bottom:2rem;
+      }
+    @media ${device.mobileL} {
         width: 100%;
         margin-bottom:2.4rem;
+
       }
 `
 
@@ -31,7 +36,7 @@ const Quantity = styled.span`
     width:6.5rem;
     vertical-align:middle;
 
-    @media ${device.mobileM} {
+    @media ${device.mobileL} {
         width: calc(100% - 12rem);
     }
 `
@@ -48,19 +53,16 @@ const QuantityButton = styled.button`
         vertical-align:middle;
     }
 
-    @media ${device.mobileM} {
+    @media ${device.mobileL} {
         padding-left: 2.4rem;
         padding-right:2.4rem;
 
-      }
+    }
 `
 
 
 
 export default function ItemQuantityToggle({ className, quantity, setQuantity }) {
-
-
-
     const decrementQuantity = () => {
         if (quantity > 1) {
             setQuantity(quantity - 1);

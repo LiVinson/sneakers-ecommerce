@@ -5,7 +5,7 @@ const PriceContainer = styled.div`
   width: 17.3rem;
   // border: solid 1px red;
 
-  @media ${device.mobileM} {
+  @media ${device.mobileL} {
     width: initial;
     display: flex;
     justify-content: space-between;
@@ -24,7 +24,7 @@ const CurrentPrice = styled.div`
   font-size: 2.8rem;
   font-weight: var(--font-bold);
 
-  @media ${device.mobileM} {
+  @media ${device.mobileL} {
     margin-right: 1.6rem;
   }
 `;
@@ -49,7 +49,7 @@ const SaleAmount = styled.div`
   padding: 0.7rem 0.8rem 0.4rem 0.8rem;
 
 
-  @media ${device.mobileM} {
+  @media ${device.mobileL} {
     margin-right: 1.6rem;
   }
 

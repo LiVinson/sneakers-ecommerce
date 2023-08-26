@@ -15,26 +15,40 @@ const ItemDetailContainer = styled.div`
   max-width: 101.5rem;
 
   @media ${device.tablet}{
-    flex-wrap:wrap;
-    justify-content: center;
-
-  }
-
-  @media ${device.mobileM} {
     flex-direction: column;
+    flex-wrap:initial;
+
+    align-items: center;
     justify-content: initial;
+    max-width: 45rem;
+    margin: 0 auto;
+
+
   }
+
+
+
+
 `;
 
 const DetailContentWrapper = styled.div`
-  max-width: 44.5rem;
   padding-top: 6.2rem;
   margin-left: 3rem;
 
-  @media ${device.mobileM} {
-    padding: 2.4rem 2.4rem 8.8rem;
+  @media ${device.tablet} {
+    padding: 2.4rem 1.5rem 8.8rem;
+    max-width: initial;
     margin-left: 0rem;
 
+
+  }
+
+  @media ${device.mobileL} {
+    padding: 4rem 3rem 8.8rem;
+  }
+
+  @media ${device.mobileM} {
+    padding: 2.4rem 2.4rem 8.8rem;
   }
 `;
 
@@ -81,6 +95,11 @@ const ItemDescription = styled.p`
 
 const ItemQuantity = styled(ItemQuantityToggle)`
   margin-right: 1.6rem;
+
+  @media ${device.tablet} {
+    margin-right: 0rem;
+
+  }
 `;
 
 const QuantityCartWrapper = styled.div`

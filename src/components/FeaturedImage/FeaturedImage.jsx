@@ -15,12 +15,27 @@ const Image = styled.img`
     width: ${(props) => props.modal ? "55rem" : "45rem"};
     height: auto;
 
-    @media ${device.mobileM} {
+    @media ${device.tablet} {
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+    }
+
+    @media ${device.mobileL} {
         display:block;
         border-radius:0;
         height: 30rem;
-        object-fit: cover;
-        object-position: top;
+        // width: 100%;
+        // object-fit: cover;
+        // object-position: top;
+    }
+
+    @media ${device.mobileM} {
+        // display:block;
+        // border-radius:0;
+        // height: 30rem;
+        // object-fit: cover;
+        // object-position: top;
     }
 
 
@@ -49,10 +64,10 @@ const SliderBtn = styled.span`
     position:absolute;
     top: 50%;
     transform: translateY(-50%);
-    z-index:1500;
+    z-index:500;
     cursor: pointer;
 
-    @media ${device.mobileM} {
+    @media ${device.mobileL} {
         display: inline-block;
         height:4rem;
         width:4rem;
@@ -71,14 +86,14 @@ export default function FeaturedImage({image, modal, changeFeaturedImageIndex}) 
     return (
         <ImageWrapper>
             <SliderBtn $modal={modal} $left={true} onClick={()=>{ changeFeaturedImageIndex("previous")}}>
-                <SliderBtnSVG src={prevArrow}/>
+                <SliderBtnSVG src={prevArrow} height="16" width="10" viewBox="0 0 12 18"/>
             </SliderBtn>
             <picture>
                 <source srcSet={`./assets/images/${image.featured}`}/>
                 <Image src={`./assets/images/${image.featured}`} modal={modal} alt={image.alt} />
             </picture>
             <SliderBtn $modal={modal} onClick={()=>{ changeFeaturedImageIndex("next")}}>
-                <SliderBtnSVG src={nextArrow}/>
+                <SliderBtnSVG src={nextArrow} height="16" width="10" viewBox="0 0 12 18"/>
             </SliderBtn>
         </ImageWrapper>
     )

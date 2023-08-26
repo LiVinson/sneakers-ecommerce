@@ -36,7 +36,7 @@ const WrapperRight = styled.div`
 const MobileMenuIcon = styled.span`
     display:none;
     width: 1.6rem;
-    height: .25rem;
+    height: .3rem;
     background-color: var(--dark-gray-blue);
     margin-right:1.6rem;
     position:relative;

@@ -13,13 +13,10 @@ const Button = styled.button`
     width: ${props => props.$width || 'auto'};
     cursor: pointer;
 
-       width:6.5rem;
-
-       @media ${device.mobileM} {
+       @media ${device.mobileL} {
         width: 100%;
         box-shadow: 0px 20px 50px -20px var(--orange);
-
-     
+        padding: 1.9rem 0rem 1.8rem;
       }
 
 `

@@ -6,6 +6,16 @@ import { device } from '../../global-design/devices'
 
 const DetailImagesWrapper = styled.div`
   max-width: 44.5rem;
+
+  @media ${device.tablet} {
+    max-width: initial;
+  }
+
+  @media ${device.mobileL} {
+    // padding-left: 2.4rem;
+    // padding-right: 2.4rem;
+    width: 100%;
+  }
 `;
 
 const ThumbnailsWrapper = styled.div`
@@ -13,7 +23,7 @@ const ThumbnailsWrapper = styled.div`
   justify-content: space-between;
   margin-top: 3.2rem;
 
-  @media ${device.mobileM} {
+  @media ${device.mobileL} {
     display:none;
   }
 

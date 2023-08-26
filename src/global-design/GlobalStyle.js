@@ -53,7 +53,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     picture {
-        // display:inline-block;
+        display:block;
         line-height:0;
     }
 `
