@@ -21,12 +21,21 @@ const ThumbnailsWrapper = styled.div`
 `;
 
 const StyledCloseSVG = styled(CloseSVG)`
+  path {
+    fill: var(--white);
+  }
   position:absolute;
   width:2rem;
   height:2rem;
   top:-4.4rem;
   right:0;
   cursor:pointer;
+
+  &:hover {
+    path {
+      fill: var(--orange);
+    }
+  }
 `
 
 
@@ -36,7 +45,7 @@ export default function ProductImageSlider({ images, featuredImageIndex, handleD
   return (
       <>
         <div>
-          <StyledCloseSVG fill="#fff" onClick={() => setDisplayModal(false)}/>
+          <StyledCloseSVG onClick={() => setDisplayModal(false)}/>
           <FeaturedImage image={images[featuredImageIndex]} modal={true} changeFeaturedImageIndex={changeFeaturedImageIndex} />
           <ThumbnailsWrapper>
             {images.map((image, index) => (

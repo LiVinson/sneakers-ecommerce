@@ -2,7 +2,7 @@ import { styled } from 'styled-components'
 import { device } from "../../global-design/devices";
 
 const Button = styled.button`
-    padding: 1.9rem 7.6rem 1.8rem 7.7rem;
+    padding: 1.9rem 0rem 1.8rem;
     border-radius: 1rem;
     background: var(--orange);
     border:none;
@@ -10,8 +10,13 @@ const Button = styled.button`
     font-size:1.6rem;
     font-weight: var(--font-bold);
     line-height:1;
-    width: ${props => props.$width || 'auto'};
+    width: ${props => props.$width || '27.2rem'};
     cursor: pointer;
+
+    &:hover {
+        background-color: var(--orange-hover);
+        
+    }
 
        @media ${device.mobileL} {
         width: 100%;

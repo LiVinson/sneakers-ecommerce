@@ -53,6 +53,12 @@ const QuantityButton = styled.button`
         vertical-align:middle;
     }
 
+    &:hover > svg {
+        path {
+            fill: var(--orange-hover);
+        }
+    }
+
     @media ${device.mobileL} {
         padding-left: 2.4rem;
         padding-right:2.4rem;

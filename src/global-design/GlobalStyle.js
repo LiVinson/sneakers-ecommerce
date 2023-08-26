@@ -14,8 +14,10 @@ const GlobalStyle = createGlobalStyle`
         //Defines 1 rem = 10px (10px/16px)
         font-size: 62.5% ;
         --orange: #FF7E1B; //hsl(26, 100%, 55%);
+        --orange-hover: #FFAB6A;
         --pale-orange: #FFEEE2; //hsl(25, 100%, 94%);
 
+    
         --dark-blue: #1D2026; //hsl(220, 13%, 13%);
         --dark-gray-blue: #69707D; //hsl(219, 9%, 45%)
 

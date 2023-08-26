@@ -40,23 +40,10 @@ const Image = styled.img`
 
 
 `
-const SliderBtnSVG = styled(SVG)`
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%, -50%);
 
-
-    @media ${device.mobileL} {
-        path {
-            width: 4rem;
-            height:4rem;
-          }
-    }
-`
 
 const SliderBtn = styled.span`
-    background-color:white;
+    background-color: white;
     border-radius: 50%;
     text-align:center;
     display: ${props => props.$modal ? 'inline-block' : 'none' };
@@ -75,6 +62,15 @@ const SliderBtn = styled.span`
             right:0rem;
             transform: translate(50%, -50%);
      `}        
+
+     &:hover {
+        svg {
+            path {
+                stroke: var(--orange);
+            }
+        }
+
+    }
  
      @media ${device.tablet} {
         // display: inline-block;
@@ -100,6 +96,21 @@ const SliderBtn = styled.span`
         ${props => !props.$left && css`
             right:1.6rem;
         `}
+    }
+`
+
+const SliderBtnSVG = styled(SVG)`
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+ 
+
+    @media ${device.mobileL} {
+        path {
+            width: 4rem;
+            height:4rem;
+          }
     }
 `
 
