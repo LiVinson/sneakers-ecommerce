@@ -5,12 +5,12 @@
 
 A sample product details page for an e-commerce site for sneakers. Design provided by frontendmentors.io. Deploted with [Github Pages.](https://livinson.github.io/sneakers-ecommerce/)
 
-![Desktop view of main site](<Screen Shot 2023-08-28 at 1.13.37 PM.png>)
+![Desktop view of main site](public/assets/images/desktop.png)
 
+![Desktop view of main site with modal open](public/assets/images/desktop_modal_open.png)
 
-![Desktop view of main site with modal open](<Screen Shot 2023-08-28 at 1.13.46 PM.png>)
+![Mobile view of main site](public/assets/images/mobile.png)
 
-![Mobile view of main site](<Screen Shot 2023-08-28 at 1.14.20 PM.png>)
 ## Run Locally 🏃🏿‍♀️
 
 Clone this repository and navigate into the sneakers directory.
