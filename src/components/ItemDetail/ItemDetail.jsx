@@ -14,21 +14,15 @@ const ItemDetailContainer = styled.div`
   justify-content: space-between;
   max-width: 101.5rem;
 
-  @media ${device.tablet}{
+  @media ${device.tablet} {
     flex-direction: column;
-    flex-wrap:initial;
+    flex-wrap: initial;
 
     align-items: center;
     justify-content: initial;
     max-width: 45rem;
     margin: 0 auto;
-
-
   }
-
-
-
-
 `;
 
 const DetailContentWrapper = styled.div`
@@ -39,8 +33,6 @@ const DetailContentWrapper = styled.div`
     padding: 2.4rem 1.5rem 8.8rem;
     max-width: initial;
     margin-left: 0rem;
-
-
   }
 
   @media ${device.mobileL} {
@@ -59,11 +51,11 @@ const Brand = styled.p`
   line-height: 1;
   margin-bottom: 2.4rem;
   text-transform: uppercase;
-  letter-spacing: .2rem;
+  letter-spacing: 0.2rem;
 
   @media ${device.mobileM} {
     font-size: 1.2rem;
-    letter-spacing: .185rem;
+    letter-spacing: 0.185rem;
     margin-bottom: 1.9rem;
   }
 `;
@@ -82,7 +74,6 @@ const ItemName = styled.h1`
   }
 `;
 
-
 const ItemDescription = styled.p`
   color: var(--dark-gray-blue);
   margin-bottom: 2.4rem;
@@ -98,7 +89,6 @@ const ItemQuantity = styled(ItemQuantityToggle)`
 
   @media ${device.tablet} {
     margin-right: 0rem;
-
   }
 `;
 
@@ -123,47 +113,47 @@ export default function ItemDetail({ addToCart, id = 0 }) {
 
   useEffect(() => {
     const item = fetchItemById(id);
-    // console.log(item)
     setItem(item);
     setFeaturedImage(item.featuredImages[0]);
     setLoading(false);
   }, [id]);
+
 
   const handleAddToCart = () => {
     addToCart(item, quantity);
   };
 
   const handleDisplayModal = (imageIndex) => {
-    // console.log("open modal to this image");
-    // console.log(imageIndex);
-
-    if (displayModal) {
-      // setFeaturedImage(image);
+    if (!displayModal) {
+      //If modal is closed and screen tablet or larger, open modal
+      if (imageContainerRef.current.offsetWidth > 450) {
+        setDisplayModal(true);
+      }
+    } 
       setFeaturedImageIndex(imageIndex);
-    } else {
-
-      //display modal on tablet or larger screens, else update featured image without modal
-        if(imageContainerRef.current.offsetWidth > 450) {
-          setDisplayModal(true);
-        }
-
-      setFeaturedImageIndex(imageIndex);
-    }
   };
 
+  //increments/decrements featured image index based on thumbnail click
   const changeFeaturedImageIndex = (changeType) => {
     let newIndex;
-    if(changeType === "next") {
-      newIndex = featuredImageIndex  === item.images.length-1 ? 0 : featuredImageIndex + 1;
-    } else if(changeType === "previous") {
-      newIndex = featuredImageIndex === 0 ? item.images.length - 1 : featuredImageIndex - 1;
+    if (changeType === "next") {
+      newIndex =
+        featuredImageIndex === item.images.length - 1
+          ? 0
+          : featuredImageIndex + 1;
+    } else if (changeType === "previous") {
+      newIndex =
+        featuredImageIndex === 0
+          ? item.images.length - 1
+          : featuredImageIndex - 1;
     }
     setFeaturedImageIndex(newIndex);
-  }
+  };
+
   return (
     <>
       {loading ? (
-        "Loading!"
+        <p>"Loading!"</p>
       ) : (
         <>
           <ItemDetailContainer ref={imageContainerRef}>
@@ -172,7 +162,6 @@ export default function ItemDetail({ addToCart, id = 0 }) {
               images={item.images}
               featuredImageIndex={featuredImageIndex}
               changeFeaturedImageIndex={changeFeaturedImageIndex}
-
             />
             <DetailContentWrapper>
               <Brand>{item.brand}</Brand>

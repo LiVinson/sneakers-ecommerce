@@ -29,8 +29,10 @@ const Total = styled.span`
 const DeleteBtn = styled(SVG)`
   margin-left: 1.5rem;
   cursor: pointer;
-  &:hover, &:focus, &:focus-within {
-    outline:none;
+  &:hover,
+  &:focus,
+  &:focus-within {
+    outline: none;
     path {
       fill: black;
     }
@@ -38,7 +40,6 @@ const DeleteBtn = styled(SVG)`
 `;
 
 function CartItem({ id, name, price, thumbNail, quantity, removeFromCart }) {
-    console.log(id);
   return (
     <CartItemsWrapper>
       <picture>
@@ -57,7 +58,11 @@ function CartItem({ id, name, price, thumbNail, quantity, removeFromCart }) {
           <Total>${(price * quantity).toFixed(2)}</Total>
         </p>
       </div>
-      <DeleteBtn tabIndex={0} src={trashSVG} onClick={() => removeFromCart(id)} />
+      <DeleteBtn
+        tabIndex={0}
+        src={trashSVG}
+        onClick={() => removeFromCart(id)}
+      />
     </CartItemsWrapper>
   );
 }
@@ -76,8 +81,11 @@ export default function ShoppingCartList({ shoppingList, removeFromCart }) {
           removeFromCart={removeFromCart}
         />
       ))}
-      <PrimaryButton width="100%" onClick={removeFromCart} onKeyDown={(e)=> e.key=='Enter' && removeFromCart()}
->
+      <PrimaryButton
+        width="100%"
+        onClick={removeFromCart}
+        onKeyDown={(e) => e.key == "Enter" && removeFromCart()}
+      >
         Checkout
       </PrimaryButton>
     </CartListWrapper>

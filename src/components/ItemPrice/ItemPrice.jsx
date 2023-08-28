@@ -3,7 +3,6 @@ import { device } from "../../global-design/devices";
 
 const PriceContainer = styled.div`
   width: 17.3rem;
-  // border: solid 1px red;
 
   @media ${device.mobileL} {
     width: initial;
