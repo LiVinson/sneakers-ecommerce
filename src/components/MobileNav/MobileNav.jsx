@@ -8,11 +8,19 @@ const NavWrapper = styled.div`
     position:fixed;
     left:0;
     padding-top:9.2rem;
-    padding-left:2rem;
+    padding-left:${props => props.$display ? '2rem' : '0rem'};
     height:100%;
-    width:25rem;
+    width: ${props => props.$display ? '25rem' : '0rem'};
     z-index:2000;
     background-color:var(--white);
+    overflow:hidden;
+    transition: all .4s ease-in-out;
+    display:none;
+
+    @media ${device.tablet} {
+        display:block;
+    }
+
 `
 
 const CloseNavIcon = styled(SVG)`
@@ -65,8 +73,8 @@ const MenuListLink = styled.a`
 `
 export default function MobileNav({ displayMobile, toggleMobileMenu }) {
     return (
-        displayMobile ? (
-            <NavWrapper>
+
+            <NavWrapper $display={displayMobile}>
                 <CloseNavIcon src={closeMenu} onClick={toggleMobileMenu} />
             <MenuList>
                 <MenuListItem><MenuListLink href="#">Collections</MenuListLink></MenuListItem>
@@ -75,7 +83,7 @@ export default function MobileNav({ displayMobile, toggleMobileMenu }) {
                 <MenuListItem><MenuListLink href="#">About</MenuListLink></MenuListItem>
                 <MenuListItem><MenuListLink href="#">Contact</MenuListLink></MenuListItem>
             </MenuList>
-        </NavWrapper>) : null
+        </NavWrapper>
 
     )
 }

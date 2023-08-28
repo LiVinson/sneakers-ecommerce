@@ -12,7 +12,7 @@ const ImageWrapper = styled.div`
 const Image = styled.img`
     border-radius:1.5rem;
     max-width:100%;
-    width: ${(props) => props.modal ? "55rem" : "45rem"};
+    width: ${(props) => props.$modal ? "55rem" : "45rem"};
     height: auto;
 
     @media ${device.tablet} {
@@ -131,7 +131,7 @@ export default function FeaturedImage({image, modal, changeFeaturedImageIndex}) 
             </SliderBtn>
             <picture>
                 <source srcSet={`./assets/images/${image.featured}`}/>
-                <Image src={`./assets/images/${image.featured}`} modal={modal} alt={image.alt} />
+                <Image src={`./assets/images/${image.featured}`} $modal={modal} alt={image.alt} />
             </picture>
             <SliderBtn 
                 $modal={modal} 

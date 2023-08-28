@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { device } from "../../global-design/devices"
 
 const Overlay = styled.div`
     position: fixed;
@@ -8,6 +9,10 @@ const Overlay = styled.div`
     height: 100%;
     background-color: RGBA(0, 0, 0, .75);
     z-index: 1000;
+
+    @media ${device.tablet} {
+        display:none;
+      }
 `
 
 const ModalWrapper = styled.div`
@@ -16,6 +21,10 @@ const ModalWrapper = styled.div`
   top: 13.3rem;
   left: 50%;
   transform: translateX(-50%);
+  
+  @media ${device.tablet} {
+    display:none;
+  }
 `;
 
 export default function Modal({ show, children }) {
