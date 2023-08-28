@@ -17,7 +17,6 @@ const ItemDetailContainer = styled.div`
   @media ${device.tablet} {
     flex-direction: column;
     flex-wrap: initial;
-
     align-items: center;
     justify-content: initial;
     max-width: 45rem;
@@ -27,7 +26,12 @@ const ItemDetailContainer = styled.div`
 
 const DetailContentWrapper = styled.div`
   padding-top: 6.2rem;
-  margin-left: 3rem;
+  margin-left: 12.5rem;
+  max-width:44.5rem;
+
+  @media ${device.laptop} {
+    margin-left: 8rem;
+  }
 
   @media ${device.tablet} {
     padding: 2.4rem 1.5rem 8.8rem;
