@@ -60,8 +60,6 @@ const Overlay = styled.div`
     }
 `
 export default function ImageThumbnail({ image, imageIndex, alt, active, handleDisplayModal }) {
-
-    console.log(image);
     return(
         <ImageWrapper 
             tabIndex={0}

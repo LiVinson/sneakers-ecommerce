@@ -110,7 +110,6 @@ export default function ItemDetail({ addToCart, id = 0 }) {
   const [loading, setLoading] = useState(true);
   const [quantity, setQuantity] = useState(1);
   const [displayModal, setDisplayModal] = useState(false);
-  const [featuredImage, setFeaturedImage] = useState(null);
   const [featuredImageIndex, setFeaturedImageIndex] = useState(0);
 
   const imageContainerRef = useRef(null);
@@ -118,7 +117,6 @@ export default function ItemDetail({ addToCart, id = 0 }) {
   useEffect(() => {
     const item = fetchItemById(id);
     setItem(item);
-    setFeaturedImage(item.images[0]);
     setLoading(false);
   }, [id]);
 
