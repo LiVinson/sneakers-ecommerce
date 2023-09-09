@@ -43,9 +43,9 @@ function CartItem({ id, name, price, thumbNail, quantity, removeFromCart }) {
   return (
     <CartItemsWrapper>
       <picture>
-        <source srcSet={`./assets/images/${thumbNail.fileName}`} />
+        <source srcSet={`./assets/images/${thumbNail}`} />
         <Image
-          src={`./assets/images/${thumbNail.fileName}`}
+          src={`./assets/images/${thumbNail}`}
           width={50}
           height={50}
           alt={thumbNail.alt}

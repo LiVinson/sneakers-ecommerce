@@ -23,6 +23,7 @@ function App() {
   };
 
   const handleAddToCart = (item, quantity) => {
+    console.log(item);
     const existingItem = shoppingCart.find(
       (cartItem) => cartItem.itemId === item.id
     );

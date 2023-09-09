@@ -4,7 +4,7 @@ export default function shoppingCartReducer(cart, action) {
       const item = {
               itemId: action.item.id,
               itemName: action.item.name,
-              itemThumbnail: action.item.thumbnailImages[0],
+              itemThumbnail: action.item.images[0].thumbnail,
               itemPrice: action.item.price * action.item.saleAmount,
               itemQuantity: action.quantity,
             };
