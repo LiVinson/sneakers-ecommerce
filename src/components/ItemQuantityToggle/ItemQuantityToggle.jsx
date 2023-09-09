@@ -95,9 +95,9 @@ export default function ItemQuantityToggle({ className, quantity, setQuantity })
 
     return (
         <Wrapper className={className ? className: '' }>
-            <QuantityButton onClick={decrementQuantity}><Previous src={prevSVG}/></QuantityButton>
+            <QuantityButton aria-label="Decrease Quantity" onClick={decrementQuantity}><Previous src={prevSVG}/></QuantityButton>
             <Quantity>{quantity}</Quantity>
-            <QuantityButton onClick={incrementQuantity}><Next src={nextSVG}/></QuantityButton>
+            <QuantityButton aria-label="Increase Quantity" onClick={incrementQuantity}><Next src={nextSVG}/></QuantityButton>
         </Wrapper>
     )
 }

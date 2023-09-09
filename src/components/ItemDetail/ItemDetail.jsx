@@ -118,7 +118,7 @@ export default function ItemDetail({ addToCart, id = 0 }) {
   useEffect(() => {
     const item = fetchItemById(id);
     setItem(item);
-    setFeaturedImage(item.featuredImages[0]);
+    setFeaturedImage(item.images[0]);
     setLoading(false);
   }, [id]);
 

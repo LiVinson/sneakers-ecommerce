@@ -61,7 +61,7 @@ const Overlay = styled.div`
 `
 export default function ImageThumbnail({ image, imageIndex, alt, active, handleDisplayModal }) {
 
-
+    console.log(image);
     return(
         <ImageWrapper 
             tabIndex={0}
@@ -71,7 +71,7 @@ export default function ImageThumbnail({ image, imageIndex, alt, active, handleD
             >
             <picture>
                 <source srcSet={`./assets/images/${image.thumbnail}`}/>
-                <Image src={`./assets/images/${image.thumbnail}`} width={88} height={88} alt={alt} />
+                <Image src={`./assets/images/${image.thumbnail}`} width={88} height={88} alt={image.alt} />
             </picture>
             {active ? <ActiveOverlay /> : <Overlay/>}
         </ImageWrapper>
