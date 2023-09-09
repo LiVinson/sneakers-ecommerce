@@ -206,7 +206,7 @@ export default function Navbar({
             <CartQuantityBubble>{totalQuantity}</CartQuantityBubble>
           )}
         </CartSVGWrapper>
-        <Avatar src={avatarImgSrc} tabIndex={0} />
+        <Avatar src={avatarImgSrc} tabIndex={0} alt="user avatar"/>
       </WrapperRight>
     </Nav>
   );
