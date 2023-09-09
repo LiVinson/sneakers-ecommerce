@@ -175,7 +175,7 @@ Error generating stack: `+o.message+`
     width: 2.4rem;
     height: 2.4rem;
   }
-`;function Pg({displayCart:e,updateDisplayCart:t,totalQuantity:n,toggleMobileMenu:r}){const i=()=>{t(!e)};return g.jsxs(vg,{children:[g.jsxs(yg,{children:[g.jsx(kg,{onClick:r}),g.jsx(gt,{src:hg}),g.jsxs(Sg,{children:[g.jsx(tr,{children:g.jsx(nr,{href:"#",children:"Collections"})}),g.jsx(tr,{children:g.jsx(nr,{href:"#",children:"Men"})}),g.jsx(tr,{children:g.jsx(nr,{href:"#",children:"Women"})}),g.jsx(tr,{children:g.jsx(nr,{href:"#",children:"About"})}),g.jsx(tr,{children:g.jsx(nr,{href:"#",children:"Contact"})})]})]}),g.jsxs(wg,{children:[g.jsxs(xg,{children:[g.jsx(Eg,{src:mg,onClick:i,tabIndex:0,onKeyDown:o=>o.key=="Enter"&&i()}),n>0&&g.jsx(Cg,{children:n})]}),g.jsx(_g,{src:gg,tabIndex:0})]})]})}const wf="/sneakers-ecommerce/assets/icon-close-ab5aca86.svg",Ng=N.div`
+`;function Pg({displayCart:e,updateDisplayCart:t,totalQuantity:n,toggleMobileMenu:r}){const i=()=>{t(!e)};return g.jsxs(vg,{children:[g.jsxs(yg,{children:[g.jsx(kg,{onClick:r}),g.jsx(gt,{src:hg}),g.jsxs(Sg,{children:[g.jsx(tr,{children:g.jsx(nr,{href:"#",children:"Collections"})}),g.jsx(tr,{children:g.jsx(nr,{href:"#",children:"Men"})}),g.jsx(tr,{children:g.jsx(nr,{href:"#",children:"Women"})}),g.jsx(tr,{children:g.jsx(nr,{href:"#",children:"About"})}),g.jsx(tr,{children:g.jsx(nr,{href:"#",children:"Contact"})})]})]}),g.jsxs(wg,{children:[g.jsxs(xg,{children:[g.jsx(Eg,{src:mg,onClick:i,tabIndex:0,onKeyDown:o=>o.key=="Enter"&&i()}),n>0&&g.jsx(Cg,{children:n})]}),g.jsx(_g,{src:gg,tabIndex:0,alt:"user avatar"})]})]})}const wf="/sneakers-ecommerce/assets/icon-close-ab5aca86.svg",Ng=N.div`
   position: fixed;
   left: 0;
   padding-top: 9.2rem;
